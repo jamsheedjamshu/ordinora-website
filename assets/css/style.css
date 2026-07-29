@@ -170,6 +170,7 @@ p.lead { font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: rgba(251, 250, 247, 0
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   z-index: 9999;
   padding: 1.4rem 0;
