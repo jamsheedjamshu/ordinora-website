@@ -15,24 +15,63 @@
   .nav-links { display: none; }
   .nav-brand-name { font-size: 1.55rem; }
   .nav-brand-sub { font-size: 0.88rem; }
+  .nav-toggle { width: 38px; gap: 7px; }
+  .nav-toggle span { height: 2px; }
+  .mobile-menu { padding: 1.8rem 1.2rem calc(2rem + env(safe-area-inset-bottom, 0px)); }
+  .mobile-menu a { font-size: 1.95rem; }
   .contact-grid { grid-template-columns: 1fr; }
-  .services-layout { grid-template-columns: 1fr; }
-  .service-nav-wrap { position: static; }
-  .service-nav-list { display: flex; overflow-x: auto; gap: 0.5rem; padding-bottom: 0.5rem; }
-  .service-nav-list a { border-left: none; border-bottom: 2px solid transparent; white-space: nowrap; }
-  .service-detail-columns { grid-template-columns: 1fr; gap: 1.8rem; }
+  .services-layout { grid-template-columns: 1fr; gap: 2.2rem; }
+  .service-nav-wrap { position: static; width: 100%; margin-bottom: 1.2rem; }
+  .service-nav-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem 0.75rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    width: 100%;
+  }
+  .service-nav-list a {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    padding: 0.85rem 1.1rem;
+    font-size: 0.96rem;
+    scroll-snap-align: start;
+  }
+  .service-detail-columns { grid-template-columns: 1fr; gap: 2rem; }
   .about-stats { grid-template-columns: 1fr; gap: 0.8rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-col:last-child { grid-column: span 2; }
   #testimonials .testimonial-card { width: max(280px, calc((100% - 3.2rem) / 3)); }
+  .service-detail { padding-block: 3rem; }
+  .service-detail-head { flex-direction: column; align-items: flex-start; gap: 1.4rem; }
+  .service-detail-icon { width: 72px; height: 72px; }
+  .service-detail-num { font-size: 1rem; }
+  .service-detail-columns p.lead { font-size: 1rem; line-height: 1.8; }
+  .service-detail-columns h4 { font-size: 1.05rem; }
+  .benefit-list li, .process-list li { font-size: 1rem; padding: 1rem 0; gap: 1rem; }
+  .service-cta { margin-top: 2rem; padding: 1.8rem; flex-direction: column; align-items: stretch; text-align: center; }
+  .service-cta h3 { font-size: 1.2rem; }
+  .service-cta p { font-size: 0.98rem; }
+  .service-cta .btn { width: 100%; max-width: 100%; justify-content: center; }
+  .page-hero { min-height: auto; padding-top: 5rem; padding-bottom: 2.5rem; align-items: flex-start; }
+  .page-hero .breadcrumb { margin-bottom: 0.85rem; }
+  .page-hero h1 { font-size: clamp(2.5rem, 6vw, 3.4rem); line-height: 1.05; }
+  .page-hero .lead { margin-top: 1rem; font-size: 1rem; line-height: 1.8; max-width: 100%; }
 }
 
 @media (max-width: 640px) {
   :root { --section-pad: 4.5rem; }
   .nav-logo { gap: 0.55rem; }
-  .nav-logo img { height: 36px; }
-  .nav-brand-name { font-size: 1.2rem; letter-spacing: -0.005em; max-width: 46vw; overflow: hidden; text-overflow: ellipsis; }
-  .nav-brand-sub { font-size: 0.72rem; letter-spacing: 0.06em; }
+  .nav-logo img { height: 44px; }
+  .nav-brand-name { font-size: 1.25rem; letter-spacing: -0.005em; max-width: 46vw; overflow: hidden; text-overflow: ellipsis; }
+  .nav-brand-sub { font-size: 0.76rem; letter-spacing: 0.06em; }
+  .nav-toggle { width: 42px; }
+  .nav-toggle span { height: 2px; }
+  .mobile-menu a { font-size: 2rem; }
   .pricing-grid { grid-template-columns: 1fr; }
   .pricing-card--span2 { grid-column: span 1; }
   .pricing-card .plan-features.two-col { grid-template-columns: 1fr; }
@@ -53,11 +92,24 @@
   .footer-col:last-child { grid-column: span 1; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .whatsapp-fab { bottom: 1.2rem; right: 1.2rem; width: 52px; height: 52px; }
-  .service-detail-head { flex-direction: column; }
+  .service-detail-head { flex-direction: column; align-items: flex-start; }
   .service-cta { flex-direction: column; align-items: stretch; text-align: center; }
-  .page-hero { min-height: 46vh; }
+  .service-nav-list { gap: 0.65rem; padding: 0.6rem 0.85rem 0.6rem; }
+  .service-nav-list a { padding: 0.85rem 1rem; font-size: 0.95rem; }
+  .service-detail { padding-block: 2rem; }
+  .service-detail-icon { width: 64px; height: 64px; }
+  .service-detail-columns { gap: 1.4rem; }
+  .service-detail-columns p.lead { font-size: 1rem; }
+  .service-detail-columns h4 { font-size: 1.05rem; }
+  .benefit-list li, .process-list li { font-size: 1rem; }
+  .service-cta { padding: 1.4rem; }
+  .page-hero { min-height: 46vh; padding-top: 4.2rem; padding-bottom: 2.2rem; }
+  .page-hero h1 { font-size: clamp(2.2rem, 8vw, 2.8rem); }
+  .page-hero .lead { font-size: 1rem; line-height: 1.8; }
+  .page-hero .breadcrumb { gap: 0.35rem; font-size: 0.82rem; }
+  html, body { overflow-x: hidden; }
+  .page-shell, .container { min-width: 0; }
 }
-
 /* Touch devices: disable hover-only transforms that can stick */
 @media (hover: none) {
   .service-card:hover, .why-card:hover { transform: none; }
