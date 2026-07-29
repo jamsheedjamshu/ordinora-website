@@ -307,13 +307,27 @@ p.lead { font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: rgba(251, 250, 247, 0
 .service-card .arrow { position: absolute; top: 2.2rem; right: 2.2rem; opacity: 0.5; transition: transform var(--dur-fast), opacity var(--dur-fast); }
 .service-card:hover .arrow { opacity: 1; transform: translate(4px, -4px); }
 
-/* ---- Testimonials ---- */
-.testimonial-track { display: flex; gap: 1.2rem; will-change: transform; }
-.testimonial-card { flex-shrink: 0; min-width: min(420px, 75vw); padding: 2rem; }
-.testimonial-card .quote { font-family: var(--font-label); font-style: italic; font-size: 1.1rem; color: var(--paper); line-height: 1.5; }
-.testimonial-card .who { margin-top: 1.3rem; display: flex; flex-direction: column; }
-.testimonial-card .who strong { font-family: var(--font-display); color: var(--gold-light); }
-.testimonial-card .who span { font-size: 0.82rem; color: rgba(251,250,247,0.55); }
+/* ---- Testimonials (home) ---- */
+#testimonials .testimonial-carousel { overflow: hidden; perspective: 1400px; }
+#testimonials .testimonial-track { display: flex; gap: 1.6rem; will-change: transform; align-items: center; }
+#testimonials .testimonial-card {
+  flex: 0 0 auto;
+  width: max(280px, calc((100% - 3.2rem) / 4));
+  min-height: clamp(220px, 28vw, 260px);
+  padding: 2.6rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: scale(0.88);
+  opacity: 0.55;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center center;
+}
+#testimonials .testimonial-card.is-active { transform: scale(1); opacity: 1; }
+#testimonials .testimonial-card .quote { font-family: var(--font-label); font-style: italic; font-size: 0.92rem; color: var(--paper); line-height: 1.55; }
+#testimonials .testimonial-card .who { margin-top: 1rem; display: flex; flex-direction: column; }
+#testimonials .testimonial-card .who strong { font-family: var(--font-display); color: var(--gold-light); }
+#testimonials .testimonial-card .who span { font-size: 0.78rem; color: rgba(251,250,247,0.55); }
 .logo-strip { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center; margin-top: 2.5rem; }
 .logo-strip span {
   font-family: var(--font-display);

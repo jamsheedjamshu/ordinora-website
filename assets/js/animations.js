@@ -120,6 +120,9 @@
     function goTo(i, animate) {
       if (animate === undefined) animate = true;
       index = ((i % count) + count) % count;
+      Array.from(track.children).forEach(function (card, idx) {
+        card.classList.toggle('is-active', idx === index);
+      });
       const card = track.children[index];
       if (!card) return;
       const offset = card.offsetLeft - (parent.clientWidth - card.offsetWidth) / 2;
