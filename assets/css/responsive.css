@@ -65,6 +65,84 @@
   .page-hero .lead { margin-top: 1rem; font-size: 1rem; line-height: 1.8; max-width: 100%; }
 }
 
+@media (max-width: 768px) {
+  .service-nav-wrap { position: static; width: 100%; margin-bottom: 1rem; }
+  .service-nav-list {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 0.75rem;
+    padding: 0 16px 12px;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    scroll-snap-type: x proximity;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .service-nav-list::-webkit-scrollbar { display: none; }
+  .service-nav-list a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 0.9rem 1.15rem;
+    font-size: 0.95rem;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    scroll-snap-align: start;
+  }
+  .service-nav-list a.active {
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+  .service-detail {
+    padding: 2rem 1.25rem;
+  }
+  .service-detail-head {
+    gap: 1.2rem;
+  }
+  .service-detail-icon {
+    width: 64px;
+    height: 64px;
+  }
+  .service-detail-columns {
+    gap: 1.4rem;
+  }
+  .service-detail-columns h4 {
+    font-size: 1.05rem;
+  }
+  .service-detail-columns p.lead,
+  .service-detail-columns p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .benefit-list li, .process-list li {
+    font-size: 1rem;
+  }
+  .service-cta {
+    padding: 1.5rem 1.25rem;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .service-cta .btn {
+    width: 100%;
+    max-width: 100%;
+  }
+  .page-hero {
+    padding-top: 5rem;
+    padding-bottom: 2.5rem;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.2rem, 7vw, 3rem);
+    line-height: 1.1;
+  }
+  .page-hero .lead {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
 @media (max-width: 640px) {
   :root { --section-pad: 4.5rem; }
   .nav-logo { gap: 0.55rem; }
