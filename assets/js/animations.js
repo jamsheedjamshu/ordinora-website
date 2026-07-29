@@ -196,12 +196,12 @@
     overlay.classList.add('active');
     tl.set(overlay, { transformOrigin: 'bottom' })
       .to(overlay, { scaleY: 1, duration: 0.55, ease: 'power4.inOut' })
-      .to('.page-shell', { scale: 1.04, opacity: 0.4, duration: 0.55, ease: 'power4.inOut' }, '<');
+      .to('.page-shell', { opacity: 0.4, duration: 0.55, ease: 'power4.inOut' }, '<');
   }
 
   /** Reveals content on load after a page transition (fade + slight zoom out). */
   function revealOnEnter() {
-    gsap.from('.page-shell', { opacity: 0, scale: 1.04, duration: 0.7, ease: 'power3.out' });
+    gsap.from('.page-shell', { opacity: 0, duration: 0.7, ease: 'power3.out' });
     const overlay = document.querySelector('.page-transition');
     if (overlay) {
       gsap.set(overlay, { transformOrigin: 'top' });
