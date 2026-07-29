@@ -33,7 +33,7 @@
   /* ---- Spacing / rhythm ---- */
   --section-pad: clamp(5rem, 10vw, 10rem);
   --container-w: min(1240px, 92vw);
-  --nav-height: 5.5rem;
+  --nav-height: 6rem;
 
   /* ---- Motion ---- */
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
@@ -170,9 +170,8 @@ p.lead { font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: rgba(251, 250, 247, 0
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   width: 100%;
-  z-index: 99999;
+  z-index: 9999;
   padding: 1.4rem 0;
   background: rgba(0, 51, 51, 0.95);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);

@@ -64,12 +64,6 @@
   function initNav(lenis) {
     const nav = document.querySelector('.nav');
     if (!nav) return;
-    const onScroll = () => {
-      if (window.scrollY > 40) nav.classList.add('is-scrolled');
-      else nav.classList.remove('is-scrolled');
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
 
     nav.querySelectorAll('a[href^="#"]').forEach((a) => {
       a.addEventListener('click', (e) => {
