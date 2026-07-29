@@ -33,6 +33,7 @@
   /* ---- Spacing / rhythm ---- */
   --section-pad: clamp(5rem, 10vw, 10rem);
   --container-w: min(1240px, 92vw);
+  --nav-height: 5.5rem;
 
   /* ---- Motion ---- */
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
@@ -112,7 +113,7 @@ p.lead { font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: rgba(251, 250, 247, 0
   z-index: 0;
   pointer-events: none;
 }
-.page-shell { position: relative; z-index: 1; }
+.page-shell { position: relative; z-index: 1; padding-top: var(--nav-height); }
 
 /* ---- Glass panels ---- */
 .glass {
@@ -167,8 +168,11 @@ p.lead { font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: rgba(251, 250, 247, 0
 /* ---- Nav ---- */
 .nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 99999;
   padding: 1.4rem 0;
   transition: padding var(--dur-fast) var(--ease-premium), background var(--dur-fast) var(--ease-premium), box-shadow var(--dur-fast) var(--ease-premium);
 }
