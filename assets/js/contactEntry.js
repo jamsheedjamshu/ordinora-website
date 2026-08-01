@@ -14,25 +14,73 @@
     const submitBtn = document.getElementById('contact-submit');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    const showStatus = (message, isError = false) => {
+      if (!status) return;
+      status.textContent = message;
+      status.style.display = 'block';
+      status.style.color = isError ? '#ffb3b3' : 'var(--gold-light)';
+      status.setAttribute('aria-live', 'polite');
+      if (window.gsap) {
+        window.gsap.fromTo(status, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.4 });
+      }
+    };
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!form.checkValidity()) {
+
+      const fullName = form.querySelector('#name')?.value.trim() || '';
+      const companyName = form.querySelector('#company')?.value.trim() || '';
+      const email = form.querySelector('#email')?.value.trim() || '';
+      const service = form.querySelector('#service')?.value.trim() || '';
+      const message = form.querySelector('#message')?.value.trim() || '';
+
+      if (!fullName || !email || !service || !message) {
+        showStatus('Please complete all required fields before sending your enquiry.', true);
         form.reportValidity();
         return;
       }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        showStatus('Please enter a valid email address.', true);
+        form.querySelector('#email')?.focus();
+        return;
+      }
+
       const originalLabel = submitBtn.textContent;
       submitBtn.textContent = 'Sending…';
       submitBtn.disabled = true;
+      showStatus('Sending your enquiry...');
 
-      // Front-end only: simulate a submission. Wire this to your backend
-      // or a form service (e.g. Formspree) to receive real submissions.
-      setTimeout(() => {
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            fullName,
+            companyName,
+            email,
+            service,
+            message
+          })
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(data.message || 'Unable to send your enquiry right now. Please try again.');
+        }
+
         form.reset();
+        showStatus('Thank you! Your enquiry has been sent successfully. We will contact you shortly.');
+      } catch (error) {
+        showStatus(error.message || 'Sorry, there was a problem sending your enquiry. Please try again.', true);
+      } finally {
         submitBtn.textContent = originalLabel;
         submitBtn.disabled = false;
-        status.style.display = 'block';
-        gsap.from(status, { opacity: 0, y: 10, duration: 0.5 });
-      }, 900);
+      }
     });
   }
 })();
