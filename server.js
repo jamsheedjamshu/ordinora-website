@@ -31,7 +31,7 @@ app.post('/api/contact', async (req, res) => {
       return res.status(400).json({ message: 'Please enter a valid email address.' });
     }
 
-    const recipient = process.env.SMTP_TO || 'info.ordinorabn@gmail.com';
+    const recipient = process.env.SMTP_TO || 'info@ordinorabs.com';
     const now = new Date();
     const date = now.toLocaleDateString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
     const time = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
