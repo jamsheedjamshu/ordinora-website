@@ -1,102 +1,142 @@
-import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
+import nodemailer from "nodemailer";
 
-dotenv.config();
+const requiredEnv = [
+  "SMTP_HOST",
+  "SMTP_PORT",
+  "SMTP_USER",
+  "SMTP_PASS",
+  "SMTP_TO"
+];
 
-const requiredEnv = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASS', 'SMTP_TO'];
-
-function getBody(req) {
-  if (!req || !req.body) return {};
-  if (typeof req.body === 'string') {
-    try {
-      return JSON.parse(req.body);
-    } catch (error) {
-      return {};
-    }
-  }
-  return req.body;
-}
-
-export default async function handler(req) {
-  if (req.method !== 'POST') {
-    return {
-      statusCode: 405,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: 'Method not allowed.' })
-    };
+export default async (request) => {
+  // Only allow POST requests
+  if (request.method !== "POST") {
+    return Response.json(
+      { message: "Method not allowed." },
+      { status: 405 }
+    );
   }
 
+  // Check environment variables
   const missingEnv = requiredEnv.filter((key) => !process.env[key]);
+
   if (missingEnv.length) {
-    return {
-      statusCode: 500,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: `Missing environment variables: ${missingEnv.join(', ')}`
-      })
-    };
+    return Response.json(
+      {
+        message: `Missing environment variables: ${missingEnv.join(", ")}`
+      },
+      { status: 500 }
+    );
   }
 
-  const body = getBody(req);
-  const { fullName, companyName = '', email, service, message } = body || {};
+  let body;
+
+  try {
+    body = await request.json();
+  } catch (err) {
+    return Response.json(
+      { message: "Invalid request body." },
+      { status: 400 }
+    );
+  }
+
+  const {
+    fullName,
+    companyName = "",
+    email,
+    service,
+    message
+  } = body;
 
   if (!fullName || !email || !service || !message) {
-    return {
-      statusCode: 400,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: 'Please complete all required fields.' })
-    };
+    return Response.json(
+      {
+        message: "Please complete all required fields."
+      },
+      { status: 400 }
+    );
   }
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
-    return {
-      statusCode: 400,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: 'Please enter a valid email address.' })
-    };
-  }
 
-  const recipient = process.env.SMTP_TO || 'info.ordinorabn@gmail.com';
-  const now = new Date();
-  const date = now.toLocaleDateString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
-  const time = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  if (!emailPattern.test(email)) {
+    return Response.json(
+      {
+        message: "Please enter a valid email address."
+      },
+      { status: 400 }
+    );
+  }
 
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT || 587),
-    secure: Number(process.env.SMTP_PORT || 587) === 465,
+    port: Number(process.env.SMTP_PORT),
+    secure: Number(process.env.SMTP_PORT) === 465,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS
     }
   });
 
+  const now = new Date();
+
+  const date = now.toLocaleDateString("en-CA");
+
+  const time = now.toLocaleTimeString("en-GB", {
+    hour12: false
+  });
+
   const mailOptions = {
     from: process.env.SMTP_FROM || process.env.SMTP_USER,
-    to: recipient,
+    to: process.env.SMTP_TO,
     replyTo: email,
-    subject: 'New Enquiry from Ordinora Website',
-    text: `--------------------------------------------------\nNew Enquiry Received\n\nFull Name:\n${fullName}\n\nCompany Name:\n${companyName || 'N/A'}\n\nEmail Address:\n${email}\n\nService of Interest:\n${service}\n\nMessage:\n${message}\n\nSubmitted On:\n${date} ${time}\n--------------------------------------------------`
+    subject: "New Enquiry from Ordinora Website",
+    text: `
+--------------------------------------------------
+New Enquiry Received
+
+Full Name:
+${fullName}
+
+Company Name:
+${companyName || "N/A"}
+
+Email Address:
+${email}
+
+Service of Interest:
+${service}
+
+Message:
+${message}
+
+Submitted On:
+${date} ${time}
+
+--------------------------------------------------
+`
   };
 
   try {
     await transporter.sendMail(mailOptions);
 
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: 'Enquiry sent successfully.' })
-    };
-  } catch (error) {
-    console.error('Contact form submission failed:', error);
+    console.log("Email sent successfully.");
 
-    return {
-      statusCode: 500,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: 'Sorry, there was a problem sending your enquiry. Please try again later.'
-      })
-    };
+    return Response.json(
+      {
+        message: "Enquiry sent successfully."
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("SMTP Error:", error);
+
+    return Response.json(
+      {
+        message:
+          "Sorry, there was a problem sending your enquiry. Please try again later."
+      },
+      { status: 500 }
+    );
   }
-}
+};
