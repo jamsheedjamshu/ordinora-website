@@ -3,6 +3,8 @@ import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 
 dotenv.config();
+console.log(dotenv.config());
+console.log("SMTP_HOST:", process.env.SMTP_HOST);
 
 const app = express();
 const port = process.env.PORT || 3001;
