@@ -19,7 +19,9 @@
   .nav-toggle span { height: 2px; }
   .mobile-menu { padding: 1.8rem 1.2rem calc(2rem + env(safe-area-inset-bottom, 0px)); }
   .mobile-menu a { font-size: 1.95rem; }
-  .contact-grid { grid-template-columns: 1fr; }
+  .consultation-shell { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .field--wide, .field--full { grid-column: auto; }
   .services-layout { grid-template-columns: 1fr; gap: 2.2rem; }
   .service-nav-wrap { position: static; width: 100%; margin-bottom: 1.2rem; }
   .service-nav-list {
@@ -129,6 +131,9 @@
   .nav-toggle { width: 42px; }
   .nav-toggle span { height: 2px; }
   .mobile-menu a { font-size: 2rem; }
+  .consultation-copy, .consultation-form { padding: 1.5rem; }
+  .form-actions { flex-direction: column; align-items: stretch; }
+  .form-actions .btn { width: 100%; }
   .pricing-grid { grid-template-columns: 1fr; }
   .pricing-card--span2 { grid-column: span 1; }
   .pricing-card .plan-features.two-col { grid-template-columns: 1fr; }

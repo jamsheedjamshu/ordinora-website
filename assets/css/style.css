@@ -366,10 +366,99 @@ html.lenis.menu-open {
 .logo-strip span.is-active { opacity: 1; color: var(--gold-light); }
 
 /* ---- Contact ---- */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); }
-.contact-form { padding: 2.6rem; display: flex; flex-direction: column; gap: 1.2rem; }
+.consultation-shell {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.consultation-copy,
+.consultation-form {
+  padding: clamp(2rem, 4vw, 3rem);
+  transition: transform var(--dur-med) var(--ease-premium), border-color var(--dur-fast), box-shadow var(--dur-med) var(--ease-premium);
+}
+.consultation-copy {
+  position: relative;
+  overflow: hidden;
+}
+.consultation-copy::before {
+  content: '';
+  position: absolute;
+  inset: auto -40% -40% 40%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(202, 151, 49, 0.22), transparent 68%);
+  pointer-events: none;
+}
+.consultation-copy .eyebrow {
+  margin-bottom: 1.2rem;
+}
+.consultation-copy h2 {
+  margin-bottom: 1rem;
+}
+.consultation-copy .lead {
+  max-width: 30ch;
+}
+.consultation-points {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding-left: 1.1rem;
+  color: rgba(251,250,247,0.8);
+}
+.consultation-points li {
+  position: relative;
+  padding-left: 0.9rem;
+  line-height: 1.7;
+}
+.consultation-points li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+.consultation-contact {
+  display: grid;
+  gap: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(229, 203, 152, 0.18);
+}
+.consultation-contact .label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.consultation-contact a {
+  color: var(--paper);
+  font-weight: 500;
+}
+.consultation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.form-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.eyebrow--small {
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 1.2rem;
+}
 .field { display: flex; flex-direction: column; gap: 0.5rem; }
+.field--wide, .field--full { grid-column: 1 / -1; }
 .field label { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(251,250,247,0.6); }
+.field label span { color: var(--gold-light); }
 .field input, .field textarea {
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--glass-border);
@@ -378,10 +467,10 @@ html.lenis.menu-open {
   color: var(--paper);
   font-family: var(--font-body);
   font-size: 0.95rem;
-  transition: border-color var(--dur-fast);
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast), transform var(--dur-fast);
 }
-.field input:focus, .field textarea:focus { border-color: var(--gold); }
-.field textarea { resize: vertical; min-height: 120px; }
+.field input:focus, .field textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(202, 151, 49, 0.12); }
+.field textarea { resize: vertical; min-height: 150px; }
 
 /* Custom select: solid brand-dark background so the closed field and the
    native options popup both stay legible (native <option> styling is
@@ -403,9 +492,9 @@ html.lenis.menu-open {
   font-size: 0.95rem;
   cursor: pointer;
   color-scheme: dark;
-  transition: border-color var(--dur-fast);
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
 }
-.field select:focus { border-color: var(--gold); }
+.field select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(202, 151, 49, 0.12); }
 .field select option {
   background-color: var(--ink-soft);
   color: var(--paper);
@@ -415,6 +504,22 @@ html.lenis.menu-open {
 .field select option:focus {
   background-color: var(--gold);
   color: var(--ink-deep);
+}
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+.form-actions .btn {
+  justify-content: center;
+  min-width: 210px;
+}
+#form-status {
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--gold-light);
 }
 .contact-info { display: flex; flex-direction: column; gap: 1.6rem; }
 .contact-info-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.6rem; }
