@@ -31,10 +31,11 @@
       const fullName = form.querySelector('#name')?.value.trim() || '';
       const companyName = form.querySelector('#company')?.value.trim() || '';
       const email = form.querySelector('#email')?.value.trim() || '';
+      const phone = form.querySelector('#phone')?.value.trim() || '';
       const service = form.querySelector('#service')?.value.trim() || '';
       const message = form.querySelector('#message')?.value.trim() || '';
 
-      if (!fullName || !email || !service || !message) {
+      if (!fullName || !email || !phone || !service || !message) {
         showStatus('Please complete all required fields before sending your enquiry.', true);
         form.reportValidity();
         return;
@@ -47,36 +48,49 @@
         return;
       }
 
+      const messageBody = [
+        'Hello Ordinora Business Services,',
+        '',
+        'I would like to enquire about your services.',
+        '',
+        '━━━━━━━━━━━━━━━━━━',
+        '',
+        'Name:',
+        fullName,
+        '',
+        'Email:',
+        email,
+        '',
+        'Phone:',
+        phone,
+        '',
+        'Service:',
+        service,
+        '',
+        'Message:',
+        message,
+        '',
+        '━━━━━━━━━━━━━━━━━━',
+        '',
+        'Sent from:',
+        'www.ordinorabs.com'
+      ].join('\n');
+
+      const whatsappUrl = 'https://wa.me/6738199924?text=' + encodeURIComponent(messageBody);
       const originalLabel = submitBtn.textContent;
-      submitBtn.textContent = 'Sending…';
+      submitBtn.textContent = 'Opening WhatsApp…';
       submitBtn.disabled = true;
-      showStatus('Sending your enquiry...');
+      showStatus('Preparing your WhatsApp enquiry...');
 
       try {
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            fullName,
-            companyName,
-            email,
-            service,
-            message
-          })
-        });
-
-        const data = await response.json().catch(() => ({}));
-
-        if (!response.ok) {
-          throw new Error(data.message || 'Unable to send your enquiry right now. Please try again.');
+        const opened = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        if (!opened) {
+          window.location.href = whatsappUrl;
         }
-
         form.reset();
-        showStatus('Thank you! Your enquiry has been sent successfully. We will contact you shortly.');
+        showStatus('Your enquiry is ready to send in WhatsApp.');
       } catch (error) {
-        showStatus(error.message || 'Sorry, there was a problem sending your enquiry. Please try again.', true);
+        window.location.href = whatsappUrl;
       } finally {
         submitBtn.textContent = originalLabel;
         submitBtn.disabled = false;
