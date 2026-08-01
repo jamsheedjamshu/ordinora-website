@@ -69,92 +69,79 @@
     </section>
 
     <section class="section section--tight">
-      <div class="container consultation-shell">
-        <aside class="consultation-copy glass">
-          <p class="eyebrow">Request a Consultation</p>
-          <h2>Let’s map the right setup for your next move.</h2>
-          <p class="lead">Share your goals and the Ordinora team will advise on the most efficient path for incorporation, licensing, compliance, payroll, accounting and growth planning.</p>
+      <div class="container contact-grid">
 
-          <ul class="consultation-points" aria-label="Key benefits">
-            <li>Business setup guidance from a trusted Brunei advisory team.</li>
-            <li>Response within one business day from a real consultant.</li>
-            <li>Tailored recommendations for compliance, finance and expansion.</li>
-          </ul>
+        <form class="contact-form glass" id="contact-form" novalidate>
+          <h3>Send an enquiry</h3>
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company" autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="service">Service of Interest</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option>Company Incorporation</option>
+              <option>Business Licensing</option>
+              <option>Corporate Secretarial</option>
+              <option>Accounting &amp; Bookkeeping</option>
+              <option>Payroll</option>
+              <option>Tax Compliance</option>
+              <option>Business Advisory</option>
+              <option>Visa &amp; Work Permit Assistance</option>
+              <option>Trademark Registration</option>
+              <option>Business Consulting</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="contact-submit">Send Enquiry</button>
+          <p id="form-status" role="status" style="font-size:0.85rem; color: var(--gold-light); display:none;">Thank you — we'll be in touch within one business day.</p>
+        </form>
 
-          <div class="consultation-contact">
+        <div class="contact-info">
+          <div class="contact-info-item glass">
+            <svg class="ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22s8-7.5 8-13a8 8 0 10-16 0c0 5.5 8 13 8 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
             <div>
-              <span class="label">Call</span>
+              <h4>Office</h4>
+              <p>No. 7, 1st Floor, Bangunan Haji Abd Rahman, Kg Menglait, Gadong, BE3919, Brunei Darussalam</p>
+            </div>
+          </div>
+          <div class="contact-info-item glass">
+            <svg class="ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8 9.7a16 16 0 006.3 6.3l1.2-1.2a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z"/></svg>
+            <div>
+              <h4>Phone</h4>
               <a href="tel:+6738199924">+673 819 9924</a>
             </div>
+          </div>
+          <div class="contact-info-item glass">
+            <svg class="ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
             <div>
-              <span class="label">Email</span>
+              <h4>Email</h4>
               <a href="mailto:info@ordinorabs.com">info@ordinorabs.com</a>
             </div>
           </div>
-        </aside>
-
-        <form class="consultation-form glass" id="contact-form" novalidate>
-          <div class="form-heading">
-            <p class="eyebrow eyebrow--small">Tell us about your needs</p>
-            <h3>Request a Consultation</h3>
-          </div>
-
-          <div class="form-grid">
-            <div class="field">
-              <label for="full-name">Full Name <span aria-hidden="true">*</span></label>
-              <input type="text" id="full-name" name="fullName" required autocomplete="name" />
-            </div>
-
-            <div class="field">
-              <label for="email">Email Address <span aria-hidden="true">*</span></label>
-              <input type="email" id="email" name="email" required autocomplete="email" />
-            </div>
-
-            <div class="field">
-              <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
-              <input type="tel" id="phone" name="phone" required autocomplete="tel" />
-            </div>
-
-            <div class="field">
-              <label for="country">Country <span aria-hidden="true">*</span></label>
-              <input type="text" id="country" name="country" required autocomplete="country" />
-            </div>
-
-            <div class="field field--wide">
-              <label for="company">Company Name (Optional)</label>
-              <input type="text" id="company" name="companyName" autocomplete="organization" />
-            </div>
-
-            <div class="field field--wide">
-              <label for="service">Service Required <span aria-hidden="true">*</span></label>
-              <select id="service" name="service" required>
-                <option value="">Select a service</option>
-                <option>Company Incorporation</option>
-                <option>Business Licensing</option>
-                <option>Corporate Secretarial</option>
-                <option>Accounting &amp; Bookkeeping</option>
-                <option>Payroll</option>
-                <option>Tax Compliance</option>
-                <option>Business Advisory</option>
-                <option>Visa &amp; Work Permit</option>
-                <option>Trademark Registration</option>
-                <option>Business Consulting</option>
-              </select>
-            </div>
-
-            <div class="field field--full">
-              <label for="message">Message <span aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" required></textarea>
+          <div class="contact-info-item glass">
+            <svg class="ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <div>
+              <h4>Office Hours</h4>
+              <p>Monday – Saturday, 8:00 AM – 5:00 PM. Sunday &amp; Public Holidays closed.</p>
             </div>
           </div>
-
-          <div class="form-actions">
-            <a href="https://wa.me/6738199924?text=Hello%20Ordinora%2C%20I%20would%20like%20to%20request%20a%20consultation." class="btn btn-primary" target="_blank" rel="noopener">Continue to WhatsApp</a>
-            <button type="button" class="btn btn-ghost" id="clear-form">Clear Form</button>
+          <div class="map-frame glass">
+            <iframe title="Ordinora office location map" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=No.+7,+1st+Floor,+Bangunan+Haji+Abd+Rahman,+Kg+Menglait,+Gadong,+BE3919,+Brunei+Darussalam&output=embed"></iframe>
           </div>
-
-          <p id="form-status" role="status" aria-live="polite">Ready when you are — the form is built for the next step and can be connected whenever needed.</p>
-        </form>
+        </div>
       </div>
     </section>
 

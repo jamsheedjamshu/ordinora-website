@@ -1,4 +1,4 @@
-// Entry script for consultation form UI (plain script, no backend connection yet)
+// Entry script for contact.html (plain script, no bundler required)
 (function () {
   const O = window.Ordinora;
   O.bootstrapSite({
@@ -11,41 +11,76 @@
   function initContactForm() {
     const form = document.getElementById('contact-form');
     const status = document.getElementById('form-status');
-    const clearBtn = document.getElementById('clear-form');
+    const submitBtn = document.getElementById('contact-submit');
     if (!form) return;
 
     const showStatus = (message, isError = false) => {
       if (!status) return;
       status.textContent = message;
+      status.style.display = 'block';
       status.style.color = isError ? '#ffb3b3' : 'var(--gold-light)';
       status.setAttribute('aria-live', 'polite');
       if (window.gsap) {
-        window.gsap.fromTo(status, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35 });
+        window.gsap.fromTo(status, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.4 });
       }
     };
 
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const requiredFields = ['fullName', 'email', 'phone', 'country', 'service', 'message'];
-      const allFilled = requiredFields.every((field) => {
-        const input = form.elements.namedItem(field);
-        return input && input.value.trim() !== '';
-      });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-      if (!allFilled) {
+      const fullName = form.querySelector('#name')?.value.trim() || '';
+      const companyName = form.querySelector('#company')?.value.trim() || '';
+      const email = form.querySelector('#email')?.value.trim() || '';
+      const service = form.querySelector('#service')?.value.trim() || '';
+      const message = form.querySelector('#message')?.value.trim() || '';
+
+      if (!fullName || !email || !service || !message) {
+        showStatus('Please complete all required fields before sending your enquiry.', true);
         form.reportValidity();
-        showStatus('Please complete all required fields before continuing.', true);
         return;
       }
 
-      showStatus('The consultation form is ready to be connected. Please use WhatsApp to continue for now.');
-    });
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        showStatus('Please enter a valid email address.', true);
+        form.querySelector('#email')?.focus();
+        return;
+      }
 
-    if (clearBtn) {
-      clearBtn.addEventListener('click', () => {
+      const originalLabel = submitBtn.textContent;
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      showStatus('Sending your enquiry...');
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            fullName,
+            companyName,
+            email,
+            service,
+            message
+          })
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(data.message || 'Unable to send your enquiry right now. Please try again.');
+        }
+
         form.reset();
-        showStatus('The form has been cleared.');
-      });
-    }
+        showStatus('Thank you! Your enquiry has been sent successfully. We will contact you shortly.');
+      } catch (error) {
+        showStatus(error.message || 'Sorry, there was a problem sending your enquiry. Please try again.', true);
+      } finally {
+        submitBtn.textContent = originalLabel;
+        submitBtn.disabled = false;
+      }
+    });
   }
 })();
