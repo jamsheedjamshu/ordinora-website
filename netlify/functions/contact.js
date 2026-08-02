@@ -132,13 +132,18 @@ ${date} ${time}
     <div style="max-width: 600px; margin: 0 auto;">
       <div style="background-color: #FFFFFF; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 32px rgba(14, 44, 33, 0.08); border: 1px solid rgba(14, 44, 33, 0.08);">
         <div style="background: linear-gradient(135deg, #0E2C21 0%, #163D2D 100%); padding: 36px 32px 28px; text-align: center;">
-          <div style="font-size: 12px; letter-spacing: 2px; color: #BE7A3D; font-weight: 700; margin-bottom: 12px;">ORDINORA</div>
-          <h1 style="margin: 0; color: #FFFFFF; font-size: 30px; line-height: 1.2; letter-spacing: 0.5px; font-weight: 700;">ORDINORA BUSINESS SERVICES SDN BHD</h1>
-          <p style="margin: 12px 0 0; color: rgba(255, 255, 255, 0.9); font-size: 16px;">Professional Business Solutions</p>
+          <img
+            src="https://ordinorabs.com/assets/images/logo.png"
+            alt="Ordinora Business Services Sdn Bhd"
+            width="180"
+            style="display:block; margin:0 auto 24px; max-width:180px; height:auto;"
+          >
+          <h1 style="margin: 0; color: #FFFFFF; font-size: 30px; line-height: 1.2; letter-spacing: 0.5px; font-weight: 700; text-align: center;"># THANK YOU!</h1>
+          <p style="margin: 12px 0 0; color: #BE7A3D; font-size: 16px; text-align: center; font-weight: 700; letter-spacing: 0.5px;">Your enquiry has been received successfully.</p>
         </div>
 
         <div style="padding: 32px;">
-          <p style="margin: 0 0 18px; font-size: 18px; color: #13251B; line-height: 1.6;">Dear ${fullName},</p>
+          <p style="margin: 0 0 18px; font-size: 18px; color: #13251B; line-height: 1.6; text-align: center;">Dear ${fullName},</p>
 
           <p style="margin: 0 0 18px; font-size: 16px; color: #13251B; line-height: 1.8;">
             Thank you for contacting Ordinora Business Services Sdn Bhd.
