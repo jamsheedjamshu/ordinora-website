@@ -210,7 +210,7 @@ ${date} ${time}
 
         <div style="padding:0 28px 30px; text-align:center; background-color:#FFFFFF;">
           <p style="margin:0; color:#0E2C21; font-size:15px; font-weight:700;">Thank you for choosing Ordinora.</p>
-          <p style="margin:12px 0 0; color:#BE7A3D; font-size:13px; font-weight:700; letter-spacing:0.5px;">Integrity • Professionalism • Business Excellence</p>
+          <p style="margin:12px 0 0; color:#BE7A3D; font-size:13px; font-weight:700; letter-spacing:0.5px;">Organized • Integrated • Accountable</p>
           <p style="margin:18px 0 0; color:#13251B; font-size:12px;">Kind regards,<br><strong>Ordinora Business Services Sdn Bhd</strong><br>© Ordinora Business Services Sdn Bhd</p>
         </div>
       </div>
