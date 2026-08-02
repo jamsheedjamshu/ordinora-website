@@ -91,6 +91,75 @@ export default async (request) => {
     to: process.env.SMTP_TO,
     replyTo: email,
     subject: "New Enquiry from Ordinora Website",
+    html: `<!DOCTYPE html>
+<html lang="en">
+  <body style="margin:0; padding:32px 16px; background-color:#F6F5EF; font-family:Arial, Helvetica, sans-serif; color:#13251B;">
+    <div style="max-width:600px; margin:0 auto;">
+      <div style="background-color:#FFFFFF; border-radius:20px; overflow:hidden; box-shadow:0 14px 32px rgba(14,44,33,0.08); border:1px solid rgba(14,44,33,0.08);">
+        <div style="background:linear-gradient(135deg, #0E2C21 0%, #163D2D 100%); padding:28px 24px 24px; text-align:center;">
+          <img
+            src="https://ordinorabs.com/assets/images/logo.png"
+            alt="Ordinora Business Services Sdn Bhd"
+            width="180"
+            style="display:block; margin:0 auto 20px; max-width:180px; height:auto;"
+          >
+          <div style="font-size:12px; letter-spacing:2px; color:#BE7A3D; font-weight:700; margin-bottom:10px;">ORDINORA</div>
+          <h1 style="margin:0; color:#FFFFFF; font-size:28px; line-height:1.2; font-weight:700; letter-spacing:0.5px; text-align:center;">NEW WEBSITE ENQUIRY RECEIVED</h1>
+        </div>
+
+        <div style="padding:28px 24px 20px;">
+          <p style="margin:0 0 20px; font-size:14px; line-height:1.7; color:#13251B; font-weight:700;">A new enquiry has been submitted through the website.</p>
+
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse; background-color:#FFFFFF; border:1px solid rgba(14,44,33,0.08); border-radius:12px; overflow:hidden; font-size:14px; color:#13251B; margin:0 0 24px;">
+            <tr>
+              <td style="padding:12px 14px; border-bottom:1px solid rgba(14,44,33,0.08); font-weight:700; width:40%; color:#0E2C21;">Full Name</td>
+              <td style="padding:12px 14px; border-bottom:1px solid rgba(14,44,33,0.08);">${fullName}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 14px; border-bottom:1px solid rgba(14,44,33,0.08); font-weight:700; color:#0E2C21;">Company Name</td>
+              <td style="padding:12px 14px; border-bottom:1px solid rgba(14,44,33,0.08);">${companyName || "N/A"}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 14px; border-bottom:1px solid rgba(14,44,33,0.08); font-weight:700; color:#0E2C21;">Email Address</td>
+              <td style="padding:12px 14px; border-bottom:1px solid rgba(14,44,33,0.08);">${email}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 14px; border-bottom:1px solid rgba(14,44,33,0.08); font-weight:700; color:#0E2C21;">Service Requested</td>
+              <td style="padding:12px 14px; border-bottom:1px solid rgba(14,44,33,0.08);">${service}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 14px; border-bottom:1px solid rgba(14,44,33,0.08); font-weight:700; color:#0E2C21;">Date</td>
+              <td style="padding:12px 14px; border-bottom:1px solid rgba(14,44,33,0.08);">${date}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 14px; font-weight:700; color:#0E2C21;">Time</td>
+              <td style="padding:12px 14px;">${time}</td>
+            </tr>
+          </table>
+
+          <div style="background-color:#F6F5EF; border:1px solid rgba(14,44,33,0.08); border-radius:12px; padding:18px; margin:0 0 24px;">
+            <p style="margin:0 0 10px; font-size:14px; line-height:1.6; color:#0E2C21; font-weight:700;">Customer Message</p>
+            <div style="font-size:14px; line-height:1.8; color:#13251B; white-space:pre-wrap;">${message}</div>
+          </div>
+
+          <div style="text-align:center; margin:0 0 22px;">
+            <a href="mailto:${email}" style="display:inline-block; background-color:#BE7A3D; color:#FFFFFF; text-decoration:none; font-weight:700; font-size:14px; padding:12px 22px; border-radius:999px;">Reply to Customer</a>
+          </div>
+        </div>
+
+        <div style="padding:0 24px 30px; text-align:center; background-color:#FFFFFF;">
+          <p style="margin:0; color:#BE7A3D; font-size:13px; font-weight:700; letter-spacing:0.5px;">Organized • Integrated • Accountable</p>
+          <p style="margin:18px 0 8px; color:#13251B; font-size:12px; line-height:1.6;">
+            Ordinora Business Services Sdn Bhd<br>
+            https://ordinorabs.com<br>
+            info@ordinorabs.com<br>
+            +673 819 9924
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>`,
     text: `
 --------------------------------------------------
 New Enquiry Received
