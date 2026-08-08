@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Business Service Packages & Pricing | Ordinora Business Services</title>
-<meta name="description" content="View transparent pricing for company incorporation, accounting, tax compliance and corporate secretarial services from Ordinora Business Services." />
+<title>Packages &amp; Services | Accounting, Tax &amp; Corporate Services | Ordinora</title>
+<meta name="description" content="Explore Ordinora's accounting, bookkeeping, corporate tax compliance, payroll, company secretarial and business service packages for Brunei businesses." />
 <link rel="canonical" href="https://ordinorabs.com/packages.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ordinora Business Services Sdn Bhd" />
-<meta property="og:title" content="Business Service Packages & Pricing | Ordinora Business Services" />
-<meta property="og:description" content="View transparent pricing for company incorporation, accounting, tax compliance and corporate secretarial services from Ordinora Business Services." />
+<meta property="og:title" content="Packages &amp; Services | Accounting, Tax &amp; Corporate Services | Ordinora" />
+<meta property="og:description" content="Explore Ordinora's accounting, bookkeeping, corporate tax compliance, payroll, company secretarial and business service packages for Brunei businesses." />
 <meta property="og:url" content="https://ordinorabs.com/packages.html" />
 <meta property="og:image" content="https://ordinorabs.com/assets/images/social-preview.jpg" />
 <meta property="og:image:width" content="1200" />
@@ -18,6 +18,57 @@
 <link rel="icon" href="/assets/images/logo.png" type="image/png" />
 <link rel="stylesheet" href="assets/css/style.css" />
 <link rel="stylesheet" href="assets/css/responsive.css" />
+<style>
+  .packages-content .package-section + .package-section { border-top: 1px solid rgba(229, 203, 152, 0.08); }
+  .service-finder { padding: 2rem; }
+  .service-finder h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 1.3rem; }
+  .finder-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.8rem; }
+  .finder-link { min-height: 7rem; padding: 1rem; border: 1px solid var(--glass-border); border-radius: 14px; display: flex; flex-direction: column; justify-content: space-between; gap: 0.7rem; transition: transform var(--dur-fast) var(--ease-premium), border-color var(--dur-fast); }
+  .finder-link:hover { transform: translateY(-4px); border-color: var(--gold); }
+  .finder-link strong { font-family: var(--font-display); font-size: 1rem; line-height: 1.2; color: var(--white); }
+  .finder-link span { font-size: 0.75rem; color: var(--gold-light); }
+  .section-nav-wrap { position: sticky; top: 6.5rem; z-index: 10; padding-block: 0.7rem; background: rgba(0, 51, 51, 0.9); backdrop-filter: blur(14px); }
+  .section-nav { display: flex; gap: 1.2rem; overflow-x: auto; scrollbar-width: none; }
+  .section-nav::-webkit-scrollbar { display: none; }
+  .section-nav a { flex: 0 0 auto; padding: 0.45rem 0; border-bottom: 1px solid transparent; color: rgba(251, 250, 247, 0.62); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+  .section-nav a:hover { color: var(--gold); border-color: var(--gold); }
+  .clarity-panel { margin: -1.2rem 0 2.2rem; padding: 1.3rem 1.5rem; border-left: 2px solid var(--gold); background: linear-gradient(135deg, rgba(202,151,49,0.13), rgba(255,255,255,0.04)); }
+  .clarity-panel strong { display: block; color: var(--gold-light); font-size: 0.82rem; letter-spacing: 0.08em; }
+  .clarity-panel p { color: rgba(251, 250, 247, 0.7); font-size: 0.86rem; margin-top: 0.45rem; }
+  .not-included { margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid rgba(229, 203, 152, 0.12); }
+  .not-included .extras-label { color: var(--gold-light); }
+  .not-included ul { display: grid; gap: 0.4rem; }
+  .not-included li { color: rgba(251, 250, 247, 0.58); font-size: 0.8rem; }
+  .category-note { margin: -2rem 0 2.2rem; color: rgba(251, 250, 247, 0.58); font-size: 0.86rem; }
+  .section-copy { margin-top: 1rem; max-width: 62ch; color: rgba(251, 250, 247, 0.68); }
+  .price-from { font-family: var(--font-label); font-size: 1.15rem; color: var(--gold); margin-right: 0.15rem; }
+  .scope-note { font-size: 0.8rem; line-height: 1.65; color: rgba(251, 250, 247, 0.55); margin-top: auto; }
+  .service-price-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 2rem; padding: 1.4rem 2rem; }
+  .service-price-list div { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(229, 203, 152, 0.12); }
+  .service-price-list span { color: rgba(251, 250, 247, 0.78); font-size: 0.9rem; }
+  .service-price-list strong { color: var(--gold-light); font-family: var(--font-display); font-weight: 500; white-space: nowrap; }
+  .additional-services, .pricing-note { padding: 2.4rem 2.1rem; }
+  .additional-services .plan-features { margin-bottom: 2rem; }
+  .additional-services .btn { width: fit-content; }
+  .pricing-note { max-width: 920px; margin-inline: auto; }
+  .pricing-note h2 { margin: 0.8rem 0 1.2rem; }
+  .pricing-note p:not(.eyebrow) { max-width: 75ch; color: rgba(251, 250, 247, 0.72); margin-top: 0.85rem; }
+  @media (max-width: 960px) {
+    .finder-grid { grid-template-columns: repeat(4, 1fr); }
+    .service-price-list { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .service-finder { padding: 1.4rem 1.25rem; }
+    .finder-grid { grid-template-columns: repeat(2, 1fr); }
+    .finder-link { min-height: 6.2rem; }
+    .section-nav-wrap { top: 5.5rem; }
+    .service-price-list { grid-template-columns: 1fr; padding: 1rem 1.25rem; }
+    .service-price-list div { align-items: flex-start; flex-direction: column; gap: 0.2rem; }
+    .additional-services, .pricing-note { padding: 1.5rem 1.25rem; }
+    .additional-services .plan-features.two-col { grid-template-columns: 1fr; }
+    .additional-services .btn { width: 100%; justify-content: center; }
+  }
+</style>
 </head>
 <body>
 
@@ -48,7 +99,7 @@
           <a href="index.html" data-transition>Home</a>
           <a href="about.html" data-transition>About</a>
           <a href="services.html" data-transition>Services</a>
-          <a href="packages.html" class="active">Packages</a>
+          <a href="packages.html" class="active">Packages &amp; Services</a>
           <a href="contact.html" data-transition>Contact</a>
         </nav>
         <a href="contact.html" data-transition class="btn btn-primary nav-cta">Book a Consultation</a>
@@ -62,178 +113,87 @@
       <a href="index.html" data-transition>Home</a>
       <a href="about.html" data-transition>About</a>
       <a href="services.html" data-transition>Services</a>
-      <a href="packages.html">Packages</a>
+      <a href="packages.html">Packages &amp; Services</a>
       <a href="contact.html" data-transition>Contact</a>
     </div>
 
     <section class="page-hero container">
       <div>
-        <div class="breadcrumb"><a href="index.html" data-transition>Home</a> / <span>Packages</span></div>
+        <div class="breadcrumb"><a href="index.html" data-transition>Home</a> / <span>Packages &amp; Services</span></div>
         <p class="eyebrow">Transparent Pricing</p>
-        <h1>Fixed-fee packages, the full cost before you commit.</h1>
-        <p class="lead" style="margin-top:1.2rem;">Incorporation, tax compliance and ongoing company maintenance — priced clearly, with every inclusion listed up front.</p>
+        <h1>Business Services, Clearly Priced.</h1>
+        <p class="lead" style="margin-top:1.2rem;">Practical accounting, tax, company secretarial and business support for companies at every stage.</p>
+        <p class="lead" style="margin-top:0.8rem;">Choose a service package that fits your business, or talk to us about a tailored solution.</p>
+        <div class="hero-actions" style="margin-top:1.8rem;"><a href="contact.html" data-transition class="btn btn-primary">Get Started</a><a href="contact.html" data-transition class="btn btn-ghost">Contact Us</a></div>
       </div>
     </section>
 
-    <section class="section section--tight">
-      <div class="container">
-
-        <div class="pricing-grid">
-
-          <!-- 1. Pre-Incorporation -->
-          <article class="pricing-card glass reveal-up">
-            <p class="plan-tag">Getting Started</p>
-            <h3>Pre-Incorporation</h3>
-            <p class="plan-desc">Full company registration advisory, start to finish.</p>
-            <div class="plan-price">$1,000 <span class="unit">BND</span></div>
-            <p class="plan-period">One-time</p>
-            <ul class="plan-features">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Company name search &amp; reservation</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Consultation on company structure</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Director compliance check</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>M&amp;AA preparation &amp; constitution drafting</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Registration with the Registry of Companies</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Compliance confirmation letter</li>
-            </ul>
-            <p class="extras-label">Additional Charges</p>
-            <ul class="plan-features">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Registered office address</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Nominal director</li>
-            </ul>
-            <div class="plan-cta"><a href="contact.html?package=pre-incorporation" data-transition class="btn btn-ghost">Enquire</a></div>
-          </article>
-
-          <!-- 2. Dormant Company -->
-          <article class="pricing-card glass reveal-up">
-            <p class="plan-tag">Tax Compliance</p>
-            <h3>Dormant Company</h3>
-            <p class="plan-desc">For companies with no transactions / not operating.</p>
-            <div class="plan-price">$70 <span class="unit">BND</span></div>
-            <p class="plan-period">Per year</p>
-            <ul class="plan-features">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>ECI submission (nil)</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Corporate tax filing (nil)</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Tax schedule submission (nil)</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Dormant financial statement preparation</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Compliance confirmation letter</li>
-            </ul>
-            <div class="plan-cta"><a href="contact.html?package=dormant-company" data-transition class="btn btn-ghost">Enquire</a></div>
-          </article>
-
-          <!-- 3. Small Company — Most Popular -->
-          <article class="pricing-card pricing-card--featured reveal-up">
-            <span class="pricing-badge">Most Popular</span>
-            <p class="plan-tag">Tax Compliance</p>
-            <h3>Small Company</h3>
-            <p class="plan-desc">For small &amp; medium businesses.</p>
-            <div class="plan-price">$600 <span class="unit">BND</span></div>
-            <p class="plan-period">Per year</p>
-            <ul class="plan-features">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>ECI submission</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Corporate tax filing</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Tax schedule filing</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Financial statement verification</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Direct priority support</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Compliance confirmation letter</li>
-            </ul>
-            <p class="extras-label">Additional Charges</p>
-            <ul class="plan-features">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Management account preparation</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Tax schedule preparation</li>
-            </ul>
-            <div class="plan-cta"><a href="contact.html?package=small-company" data-transition class="btn btn-primary">Enquire</a></div>
-          </article>
-
-        </div>
-
-        <div class="pricing-grid">
-
-          <!-- 4. Large Company -->
-          <article class="pricing-card glass reveal-up">
-            <p class="plan-tag">Tax Compliance</p>
-            <h3>Large Company</h3>
-            <p class="plan-desc">For larger companies.</p>
-            <div class="plan-price">$800 <span class="unit">BND</span></div>
-            <p class="plan-period">Per year</p>
-            <ul class="plan-features">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>ECI submission</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Corporate tax filing</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Tax schedule preparation &amp; filing</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Employer obligations (PCP, TAP, SCP)</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Handling queries with Revenue Division</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Direct priority support</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Compliance confirmation letter</li>
-            </ul>
-            <p class="extras-label">Additional Charges</p>
-            <ul class="plan-features">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Management account preparation</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Tax schedule preparation</li>
-            </ul>
-            <div class="plan-cta"><a href="contact.html?package=large-company" data-transition class="btn btn-ghost">Enquire</a></div>
-          </article>
-
-          <!-- 5. Company Maintain Service (spans two columns, two feature lists) -->
-          <article class="pricing-card pricing-card--span2 glass reveal-up">
-            <p class="plan-tag">Ongoing Maintenance</p>
-            <h3>Company Maintain Service</h3>
-            <p class="plan-desc">Statutory changes and filings, billed per service. Exclusive of government fees.</p>
-            <div class="plan-price">$100 <span class="unit">BND</span></div>
-            <p class="plan-period">Per service</p>
-            <ul class="plan-features two-col">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Filing annual return</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Increase share capital</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Change of company name</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Allotment of shares</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Update M&amp;AA / address / shareholder / director details</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Transfer of shares</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Update director structure &amp; register of controller</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Application for strike-off</li>
-            </ul>
-            <div class="plan-cta"><a href="contact.html?package=company-maintenance" data-transition class="btn btn-ghost">Enquire</a></div>
-          </article>
-
-        </div>
-
-        <p class="pricing-footnote">All package fees quoted in Brunei Dollars (BND) and are exclusive of applicable government fees unless stated otherwise.</p>
-
-      </div>
+    <section class="section section--tight" aria-labelledby="service-finder-title">
+      <div class="container"><div class="service-finder glass"><h2 id="service-finder-title">What does your business need?</h2><div class="finder-grid">
+        <a class="finder-link" href="#company-setup"><strong>Start a Business</strong><span>Company Incorporation</span></a>
+        <a class="finder-link" href="#tax-compliance"><strong>File Corporate Tax</strong><span>Tax Compliance</span></a>
+        <a class="finder-link" href="#annual-accounting"><strong>Maintain My Accounts</strong><span>Annual Accounting</span></a>
+        <a class="finder-link" href="#monthly-accounting"><strong>Monthly Bookkeeping</strong><span>Monthly Accounting</span></a>
+        <a class="finder-link" href="#company-secretarial"><strong>Maintain Company Compliance</strong><span>Company Secretarial</span></a>
+        <a class="finder-link" href="#payroll"><strong>Process Payroll</strong><span>Payroll Services</span></a>
+        <a class="finder-link" href="#business-care"><strong>Accounting + Tax Together</strong><span>Business Care</span></a>
+      </div></div></div>
     </section>
 
-    <section class="section section--tight">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Why It's Simple</p>
-          <h2>One trusted partner, not five different agencies.</h2>
-        </div>
-        <div class="why-grid">
-          <div class="why-card glass reveal-up">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 3v4M16 3v4M4 9h16M6 5h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2z"/></svg>
-            <h3>Compliance Calendar</h3>
-            <p>We track every ROCBN, tax, and labour deadline on your behalf, so annual returns, tax filings, and census submissions are always lodged on time.</p>
-          </div>
-          <div class="why-card glass reveal-up">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
-            <h3>Transparent Packages</h3>
-            <p>Clear, upfront fixed-fee pricing across incorporation, tax compliance, and company maintenance — so you know the full cost before you commit.</p>
-          </div>
-          <div class="why-card glass reveal-up">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 010 18"/></svg>
-            <h3>Direct Regulatory Liaison</h3>
-            <p>Hands-on coordination with ROCBN, the Revenue Division, the Labour Department, and licensing authorities — one trusted partner, not multiple agencies.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="section-nav-wrap"><div class="container"><nav class="section-nav" aria-label="Packages and services sections">
+      <a href="#company-setup">Company Setup</a><a href="#tax-compliance">Tax Compliance</a><a href="#annual-accounting">Annual Accounting</a><a href="#monthly-accounting">Monthly Accounting</a><a href="#company-secretarial">Company Secretarial</a><a href="#payroll">Payroll</a><a href="#business-care">Business Care</a>
+    </nav></div></div>
 
-    <section class="section section--tight">
-      <div class="container text-center">
-        <div class="section-head mx-auto">
-          <p class="eyebrow" style="justify-content:center;">Not Sure Which Package Fits?</p>
-          <h2>Tell us about your company — we'll recommend the right one.</h2>
+    <main class="packages-content">
+      <section class="section section--tight package-section" id="company-setup">
+        <div class="container"><div class="section-head"><p class="eyebrow">01 / Company Setup</p><h2>Company Setup</h2><p class="section-copy">Start your business with practical incorporation and compliance support from registration through initial corporate setup.</p></div>
+          <div class="pricing-grid"><article class="pricing-card glass reveal-up"><p class="plan-tag">One-time service</p><h3>Company Incorporation</h3><p class="plan-desc">Company incorporation Brunei support from name application through post-incorporation guidance.</p><div class="plan-price">BND 999</div><p class="plan-period">One-time</p><ul class="plan-features"><li>✓ Company name application</li><li>✓ Incorporation with ROCBN</li><li>✓ Constitution / company constitution preparation</li><li>✓ Statutory incorporation documentation</li><li>✓ Company secretary appointment</li><li>✓ Share certificate preparation</li><li>✓ First board resolution</li><li>✓ Basic post-incorporation compliance guidance</li></ul><p class="extras-label">Additional services</p><p class="scope-note">Registered office, nominee or additional corporate arrangements, special licences and additional corporate documentation are quoted separately.</p><p class="pricing-footnote">Government fees and third-party disbursements are additional where applicable unless specifically stated.</p><div class="plan-cta"><a href="contact.html?package=company-incorporation" data-transition class="btn btn-ghost">Get Started</a></div></article></div>
         </div>
-        <a href="contact.html" data-transition class="btn btn-primary">Book a Consultation</a>
-      </div>
-    </section>
+      </section>
+
+      <section class="section section--tight package-section" id="tax-compliance"><div class="container"><div class="section-head"><p class="eyebrow">02 / Tax Compliance</p><h2>Tax Compliance</h2><p class="section-copy">Annual tax filing and compliance support for Brunei companies, with clear scope and transparent pricing.</p></div><div class="clarity-panel"><strong>IMPORTANT: ACCOUNTING IS NOT INCLUDED IN TAX COMPLIANCE PACKAGES.</strong><p>Tax Compliance packages cover tax filing and compliance based on accounting records and financial information provided by the client.</p><p>Bookkeeping, accounting cleanup, financial statement preparation and management accounts are separate services and will be quoted separately where required.</p></div><div class="pricing-grid">
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Tax Compliance</p><h3>Dormant Company</h3><p class="plan-desc">For companies with no business transactions during the relevant period.</p><div class="plan-price">BND 99</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ Nil ECI submission</li><li>✓ Nil Corporate Income Tax Return</li><li>✓ Nil tax schedule submission</li><li>✓ Review of available dormant / nil financial information</li><li>✓ Directors' confirmation</li><li>✓ Compliance confirmation</li></ul><div class="not-included"><p class="extras-label">Not included</p><ul><li>✕ Bookkeeping</li><li>✕ Financial statement preparation</li><li>✕ Management accounts</li><li>✕ Historical / catch-up bookkeeping</li><li>✕ Accounting reconstruction</li></ul></div></article>
+        <article class="pricing-card pricing-card--featured glass reveal-up"><span class="pricing-badge">Most Popular</span><p class="plan-tag">Tax Compliance</p><h3>SME Tax Compliance</h3><p class="plan-desc">For small businesses with straightforward and properly maintained accounting records.</p><div class="plan-price">BND 199</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ ECI submission</li><li>✓ Corporate Income Tax Return</li><li>✓ Basic tax computation</li><li>✓ Tax schedule preparation</li><li>✓ Review / verification of client-provided financial statements</li><li>✓ Compliance review</li><li>✓ One consultation session</li><li>✓ Filing confirmation</li></ul><div class="not-included"><p class="extras-label">Accounting not included</p><ul><li>✕ Bookkeeping</li><li>✕ Financial statement preparation</li><li>✕ Management accounts</li><li>✕ Catch-up or historical bookkeeping</li><li>✕ Accounting reconstruction</li><li>✕ Extensive accounting corrections</li></ul></div><p class="scope-note">Complex tax adjustments, amended returns, additional advisory, Revenue Division correspondence and additional consultations are quoted separately.</p></article>
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Tax Compliance</p><h3>Active / Complex Tax</h3><p class="plan-desc">For businesses requiring broader tax review or more involved compliance support.</p><div class="plan-price"><span class="price-from">From</span> BND 299</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ ECI submission</li><li>✓ Corporate Income Tax Return</li><li>✓ Tax computation</li><li>✓ Tax schedule preparation</li><li>✓ Review of client-provided financial statements</li><li>✓ Compliance review</li><li>✓ One consultation session</li></ul><div class="not-included"><p class="extras-label">Accounting not included</p><ul><li>✕ Bookkeeping</li><li>✕ Financial statement preparation</li><li>✕ Management accounts</li><li>✕ Historical / catch-up bookkeeping</li><li>✕ Accounting reconstruction</li><li>✕ Extensive accounting corrections</li></ul></div><p class="scope-note">Employer compliance, Revenue Division correspondence, complex adjustments, amended returns, tax advisory and additional consultations may be quoted separately.</p></article>
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Tax Compliance</p><h3>Corporate Tax Compliance</h3><p class="plan-desc">For established businesses requiring broader tax and compliance support.</p><div class="plan-price"><span class="price-from">From</span> BND 499</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ ECI submission</li><li>✓ Corporate Income Tax Return</li><li>✓ Comprehensive tax computation</li><li>✓ Tax schedule preparation</li><li>✓ Review of client-provided financial statements</li><li>✓ Employer compliance support</li><li>✓ Revenue Division correspondence</li><li>✓ Annual compliance review</li><li>✓ Priority support</li></ul><div class="not-included"><p class="extras-label">Accounting not included</p><ul><li>✕ Bookkeeping</li><li>✕ Financial statement preparation</li><li>✕ Management accounts</li><li>✕ Historical / catch-up bookkeeping</li><li>✕ Accounting reconstruction</li><li>✕ Extensive accounting corrections</li></ul></div><p class="scope-note">Complex accounting adjustments, historical bookkeeping, financial statement preparation, management accounts, additional advisory, amended returns and additional accounting work are quoted separately.</p></article>
+      </div></div></section>
+
+      <section class="section section--tight package-section" id="annual-accounting"><div class="container"><div class="section-head"><p class="eyebrow">03 / Annual Accounting</p><h2>Annual Accounting</h2><p class="section-copy">Year-end accounting support for businesses with defined annual transaction volumes and reporting requirements.</p></div><p class="category-note">These are annual accounting packages for year-end work. They are separate from ongoing monthly bookkeeping and financial reporting.</p><div class="pricing-grid">
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Annual Accounting</p><h3>Starter</h3><p class="plan-desc">For micro businesses and low transaction volumes.</p><div class="plan-price">BND 249</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ Up to 100 transactions/year</li><li>✓ General ledger</li><li>✓ Profit &amp; Loss statement</li><li>✓ Basic Balance Sheet</li><li>✓ One bank reconciliation account</li><li>✓ Year-end accounting summary</li><li>✓ Basic tax computation summary</li></ul></article>
+        <article class="pricing-card pricing-card--featured glass reveal-up"><span class="pricing-badge">Popular</span><p class="plan-tag">Annual Accounting</p><h3>Standard</h3><p class="plan-desc">For businesses with defined annual reporting needs.</p><div class="plan-price">BND 499</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ Up to 200 transactions/year</li><li>✓ Bookkeeping</li><li>✓ Profit &amp; Loss</li><li>✓ Balance Sheet</li><li>✓ Trial Balance</li><li>✓ General Ledger</li><li>✓ Bank reconciliation</li><li>✓ Annual reporting package</li><li>✓ Tax computation support</li></ul></article>
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Annual Accounting</p><h3>Growth</h3><p class="plan-desc">For businesses growing their reporting requirements.</p><div class="plan-price">BND 849</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ Up to 500 transactions/year</li><li>✓ Full financial statements</li><li>✓ Profit &amp; Loss</li><li>✓ Balance Sheet</li><li>✓ Cash Flow Statement</li><li>✓ Up to 2 bank accounts</li><li>✓ Debtor &amp; creditor schedules</li><li>✓ Fixed asset / depreciation schedule</li><li>✓ Tax filing support</li><li>✓ Payroll summary for up to 5 employees</li></ul></article>
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Annual Accounting</p><h3>Business Plus</h3><p class="plan-desc">For established businesses requiring broader accounting support.</p><div class="plan-price"><span class="price-from">From</span> BND 1,499</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ Up to 1,000 transactions/year</li><li>✓ Full financial statements</li><li>✓ Multiple bank account reconciliation</li><li>✓ Debtor &amp; creditor schedules</li><li>✓ Fixed asset register</li><li>✓ Tax support</li><li>✓ Payroll support</li><li>✓ Management reporting</li><li>✓ Basic forecasting support</li></ul><p class="scope-note">Higher volumes, multi-entity accounting, audit support and CFO/advisory services are quoted separately.</p></article>
+      </div></div></section>
+
+      <section class="section section--tight package-section" id="monthly-accounting"><div class="container"><div class="section-head"><p class="eyebrow">04 / Monthly Accounting</p><h2>Monthly Accounting</h2><p class="section-copy">Keep your accounts up to date throughout the year with ongoing bookkeeping and financial reporting.</p></div><div class="pricing-grid">
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Monthly Accounting</p><h3>Basic</h3><p class="plan-desc">For micro businesses and startups.</p><div class="plan-price">BND 149</div><p class="plan-period">Per month</p><ul class="plan-features"><li>✓ Up to 75 transactions/month</li><li>✓ Monthly Profit &amp; Loss</li><li>✓ Bank reconciliation — 1 account</li><li>✓ General ledger maintenance</li><li>✓ Quarterly financial review</li><li>✓ Email support</li></ul></article>
+        <article class="pricing-card pricing-card--featured glass reveal-up"><span class="pricing-badge">Most Popular</span><p class="plan-tag">Monthly Accounting</p><h3>Standard</h3><p class="plan-desc">For growing SMEs.</p><div class="plan-price">BND 299</div><p class="plan-period">Per month</p><ul class="plan-features"><li>✓ Up to 175 transactions/month</li><li>✓ Monthly Profit &amp; Loss</li><li>✓ Balance Sheet</li><li>✓ Cash Flow Statement</li><li>✓ Bank reconciliation — up to 2 accounts</li><li>✓ Credit card reconciliation</li><li>✓ Debtor &amp; creditor reports</li><li>✓ Payroll — up to 5 employees</li><li>✓ Tax filing support</li><li>✓ Phone &amp; email support</li></ul></article>
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Monthly Accounting</p><h3>Premium</h3><p class="plan-desc">For established businesses.</p><div class="plan-price">BND 549</div><p class="plan-period">Per month</p><ul class="plan-features"><li>✓ Up to 500 transactions/month</li><li>✓ Monthly financial statements</li><li>✓ Management reports</li><li>✓ Bank reconciliation — up to 3 accounts</li><li>✓ Debtor &amp; creditor schedules</li><li>✓ Payroll — up to 10 employees</li><li>✓ Year-end financial statements</li><li>✓ Corporate tax filing support</li><li>✓ Tax compliance coordination</li><li>✓ Priority support</li><li>✓ Dedicated account manager</li></ul><p class="scope-note">Additional transactions, multi-entity accounting, complex inventory, audit support and CFO/advisory services are quoted separately.</p></article>
+      </div></div></section>
+
+      <section class="section section--tight package-section" id="company-secretarial"><div class="container"><div class="section-head"><p class="eyebrow">05 / Company Secretarial</p><h2>Company Secretarial</h2><p class="section-copy">Keep your company's statutory records and corporate obligations organised with practical company secretarial support.</p></div><div class="pricing-grid">
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Annual Company Secretarial</p><h3>Basic</h3><div class="plan-price">BND 499</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ Annual compliance coordination</li><li>✓ Annual return support</li><li>✓ Statutory record maintenance</li><li>✓ Standard company secretarial correspondence</li><li>✓ Compliance reminders</li></ul></article>
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Annual Company Secretarial</p><h3>Standard</h3><div class="plan-price">BND 799</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ Everything in Basic</li><li>✓ Annual return filing</li><li>✓ Register updates</li><li>✓ Director/shareholder record updates</li><li>✓ Standard corporate resolutions</li><li>✓ Routine statutory changes</li><li>✓ Compliance calendar</li></ul></article>
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Annual Company Secretarial</p><h3>Premium</h3><div class="plan-price">BND 1,499</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ Everything in Standard</li><li>✓ Broader statutory compliance support</li><li>✓ Multiple corporate changes</li><li>✓ Enhanced compliance coordination</li><li>✓ Priority support</li><li>✓ Corporate documentation support</li></ul></article>
+      </div><p class="pricing-footnote">Government fees and third-party disbursements are additional where applicable.</p></div></section>
+
+      <section class="section section--tight package-section" id="individual-secretarial"><div class="container"><div class="section-head"><p class="eyebrow">Individual Services</p><h2>Need a Single Corporate Filing?</h2></div><div class="service-price-list glass"><div><span>Annual Return</span><strong>From BND 100</strong></div><div><span>Director Change</span><strong>From BND 100</strong></div><div><span>Shareholder Change</span><strong>From BND 100</strong></div><div><span>Share Transfer</span><strong>From BND 150</strong></div><div><span>Allotment of Shares</span><strong>From BND 150</strong></div><div><span>Increase in Share Capital</span><strong>From BND 150</strong></div><div><span>Register of Controllers Update</span><strong>From BND 100</strong></div><div><span>Company Name Change</span><strong>From BND 150</strong></div><div><span>Strike-Off Application</span><strong>From BND 250</strong></div></div><p class="pricing-footnote">Government fees and third-party disbursements are additional where applicable.</p></div></section>
+
+      <section class="section section--tight package-section" id="payroll"><div class="container"><div class="section-head"><p class="eyebrow">06 / Payroll</p><h2>Payroll Services</h2><p class="section-copy">Reliable payroll support for businesses that want accurate and organised monthly salary processing.</p></div><div class="pricing-grid">
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Payroll</p><h3>Payroll Starter</h3><div class="plan-price"><span class="price-from">From</span> BND 100</div><p class="plan-period">Per month</p><ul class="plan-features"><li>✓ Payroll calculation</li><li>✓ Salary slips</li><li>✓ Payroll summary</li><li>✓ Basic statutory contribution support</li></ul></article>
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Payroll</p><h3>Payroll Plus</h3><div class="plan-price"><span class="price-from">From</span> BND 150</div><p class="plan-period">Per month</p><ul class="plan-features"><li>✓ Up to 5 employees</li><li>✓ Monthly payroll processing</li><li>✓ Salary slips</li><li>✓ Statutory contribution support</li><li>✓ Monthly payroll report</li></ul><p class="scope-note">Additional employee: From BND 20–25 per employee/month.</p></article>
+      </div></div></section>
+
+      <section class="section section--tight package-section business-care" id="business-care"><div class="container"><div class="section-head"><p class="eyebrow">07 / Business Care</p><h2>Business Care</h2><p class="section-copy">One practical package combining accounting and annual tax compliance for businesses that prefer a simpler approach.</p></div><div class="pricing-grid">
+        <article class="pricing-card pricing-card--featured glass reveal-up"><span class="pricing-badge">Best Value</span><p class="plan-tag">Business Care</p><h3>SME Business Care</h3><p class="plan-desc">For small businesses that want accounting and annual tax compliance together.</p><div class="plan-price">BND 699</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ Up to 200 accounting transactions/year</li><li>✓ Bookkeeping</li><li>✓ Profit &amp; Loss</li><li>✓ Balance Sheet</li><li>✓ Trial Balance</li><li>✓ Bank reconciliation</li><li>✓ ECI submission</li><li>✓ Corporate Income Tax Return</li><li>✓ Tax computation</li><li>✓ Tax schedule</li><li>✓ Annual compliance review</li><li>✓ Filing confirmation</li></ul></article>
+        <article class="pricing-card glass reveal-up"><p class="plan-tag">Business Care</p><h3>Business Care Plus</h3><p class="plan-desc">For growing SMEs requiring broader accounting and compliance support.</p><div class="plan-price">BND 999</div><p class="plan-period">Per year</p><ul class="plan-features"><li>✓ Up to 500 transactions/year</li><li>✓ Full financial statements</li><li>✓ Bank reconciliation — up to 2 accounts</li><li>✓ Debtor &amp; creditor schedules</li><li>✓ Fixed asset schedule</li><li>✓ ECI submission</li><li>✓ Corporate Income Tax Return</li><li>✓ Tax computation</li><li>✓ Tax schedule</li><li>✓ Payroll summary — up to 5 employees</li><li>✓ Annual compliance review</li><li>✓ Priority email support</li></ul></article>
+      </div></div></section>
+
+      <section class="section section--tight package-section" id="custom-quote"><div class="container"><div class="section-head"><p class="eyebrow">Additional Services</p><h2>Need Something More Specific?</h2><p class="section-copy">Some businesses need support beyond a standard package. We can provide a tailored quotation based on the scope of work.</p></div><div class="additional-services glass"><ul class="plan-features two-col"><li>✓ Bookkeeping cleanup</li><li>✓ Historical / catch-up bookkeeping</li><li>✓ Management accounts</li><li>✓ Financial statement preparation</li><li>✓ Complex tax adjustments</li><li>✓ Amended tax returns</li><li>✓ Tax advisory</li><li>✓ Revenue Division correspondence</li><li>✓ Audit preparation support</li><li>✓ Business restructuring support</li><li>✓ Management reporting</li><li>✓ CFO / advisory support</li><li>✓ Additional payroll services</li><li>✓ Multi-entity accounting</li></ul><a href="contact.html?package=custom-quote" data-transition class="btn btn-primary">Request a Custom Quote</a></div></div></section>
+
+      <section class="section section--tight" id="transparent-pricing"><div class="container"><div class="pricing-note glass"><p class="eyebrow">08 / Transparent Pricing</p><h2>Transparent Pricing</h2><p>Our package prices cover the services specifically listed. If your requirements fall outside the selected package, we will explain the additional work and provide a quotation for approval before proceeding.</p><p>Transaction volume, number of employees, number of bank accounts, historical records and the complexity of the work may affect the final fee.</p><p>Government fees, statutory charges and third-party disbursements are additional where applicable unless specifically stated.</p></div></div></section>
+
+      <section class="section section--tight"><div class="container text-center"><div class="section-head mx-auto"><p class="eyebrow" style="justify-content:center;">Start With Clarity</p><h2>Not Sure Which Package Fits Your Business?</h2><p class="section-copy">Tell us about your company and what you need help with. We'll help you identify the most suitable Ordinora service.</p></div><div class="hero-actions" style="justify-content:center;"><a href="contact.html" data-transition class="btn btn-primary">Get a Quote</a><a href="contact.html" data-transition class="btn btn-ghost">Contact Ordinora</a></div></div></section>
 
     <footer class="footer">
       <div class="container">
