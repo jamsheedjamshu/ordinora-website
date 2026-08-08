@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ordinora Insights &amp; Updates | Business, Tax &amp; Accounting</title>
+<meta name="description" content="Practical business, accounting, tax, bookkeeping and compliance insights for businesses in Brunei from Ordinora Business Services Sdn Bhd." />
+<link rel="canonical" href="https://ordinorabs.com/insights" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ordinora Business Services Sdn Bhd" />
+<meta property="og:title" content="Ordinora Insights &amp; Updates | Business, Tax &amp; Accounting" />
+<meta property="og:description" content="Practical business, accounting, tax, bookkeeping and compliance insights for businesses in Brunei from Ordinora Business Services Sdn Bhd." />
+<meta property="og:url" content="https://ordinorabs.com/insights" />
+<meta property="og:image" content="https://ordinorabs.com/assets/images/social-preview.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="/assets/images/logo.png" type="image/png" />
+<link rel="stylesheet" href="../assets/css/style.css" />
+<link rel="stylesheet" href="../assets/css/responsive.css" />
+<style>
+  .insights-page .page-hero { min-height: 52vh; }
+  .insights-intro { max-width: 680px; }
+  .insights-intro .lead { max-width: 62ch; }
+  .insights-section { padding-block: clamp(3.5rem, 7vw, 6rem); }
+  .insights-section + .insights-section { border-top: 1px solid rgba(229,203,152,0.08); }
+  .insights-section-head { display:flex; align-items:end; justify-content:space-between; gap:2rem; margin-bottom:2rem; }
+  .insights-section-head h2 { margin-top:.75rem; }
+  .insights-section-head p:not(.eyebrow) { color:rgba(251,250,247,.65); max-width:54ch; margin-top:.7rem; }
+  .insight-image { aspect-ratio: 16 / 8; overflow:hidden; background:var(--ink-soft); }
+  .insight-image img { width:100%; height:100%; object-fit:cover; opacity:.78; }
+  .insight-card { overflow:hidden; display:flex; flex-direction:column; }
+  .insight-card-body { padding:1.6rem; display:flex; flex-direction:column; flex:1; }
+  .insight-card h3 { font-size:1.35rem; margin:.45rem 0 .7rem; }
+  .insight-card h3 a:hover { color:var(--gold-light); }
+  .insight-card-body > p:not(.plan-tag) { color:rgba(251,250,247,.67); font-size:.9rem; }
+  .insight-card .btn { margin-top:1.2rem; width:fit-content; }
+  .insight-card--featured { display:grid; grid-template-columns:1.1fr 1fr; }
+  .insight-card--featured .insight-image { height:100%; aspect-ratio:auto; }
+  .insight-card--featured h3 { font-size:clamp(1.7rem,3vw,2.7rem); }
+  .insight-meta { display:flex; gap:1rem; flex-wrap:wrap; color:rgba(251,250,247,.45); font-size:.76rem; margin-top:auto; padding-top:1.4rem; }
+  .category-filters { display:flex; gap:.7rem; overflow-x:auto; padding-bottom:.3rem; scrollbar-width:none; }
+  .category-filters::-webkit-scrollbar { display:none; }
+  .category-filter { flex:0 0 auto; color:rgba(251,250,247,.64); border:1px solid var(--glass-border); border-radius:999px; padding:.65rem 1rem; font-size:.78rem; cursor:pointer; }
+  .category-filter:hover, .category-filter.is-active { color:var(--ink-deep); border-color:var(--gold); background:var(--gold-light); }
+  .insight-search { display:flex; gap:.8rem; align-items:center; max-width:720px; margin-bottom:1.5rem; }
+  .insight-search label { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+  .insight-search input { flex:1; min-width:0; background:var(--glass-fill); border:1px solid var(--glass-border); border-radius:999px; color:var(--paper); padding:.95rem 1.2rem; font:inherit; }
+  .insight-search input::placeholder { color:rgba(251,250,247,.45); }
+  .insight-search input:focus { outline:2px solid var(--gold); outline-offset:2px; }
+  .insight-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+  .insight-empty { color:rgba(251,250,247,.62); padding:1.5rem 0; }
+  .update-empty { padding:2rem; text-align:center; color:rgba(251,250,247,.65); }
+  .resource-cta { padding:2rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; }
+  .resource-cta p { color:rgba(251,250,247,.65); margin-top:.5rem; max-width:58ch; }
+  @media(max-width:960px){ .insight-grid{grid-template-columns:repeat(2,1fr)} .insight-card--featured{grid-template-columns:1fr} .insight-card--featured .insight-image{aspect-ratio:16/8} }
+  @media(max-width:640px){ .insights-page .page-hero{min-height:auto} .insights-section-head{display:block} .insight-grid{grid-template-columns:1fr} .resource-cta{display:block} .resource-cta .btn{margin-top:1.2rem;width:100%;justify-content:center} .insight-search{display:block} .insight-search input{width:100%} }
+</style>
+</head>
+<body>
+<div class="loader" aria-hidden="true"><svg viewBox="0 0 100 100"><g fill="#ca9731"><rect class="bar" x="30" y="40" width="12" height="45"/><rect class="bar" x="48" y="25" width="12" height="60"/><rect class="bar" x="66" y="10" width="12" height="75"/></g></svg><span>ORDINORA</span></div>
+<div class="page-transition" aria-hidden="true"></div><canvas id="three-canvas" aria-hidden="true"></canvas>
+<div class="page-shell insights-page">
+<header class="nav"><div class="container"><a href="../index.html" data-transition class="nav-logo" aria-label="Ordinora home"><img src="/assets/images/logo.png" alt="Ordinora Business Services logo"/><span class="nav-brand"><span class="nav-brand-name">Ordinora</span><span class="nav-brand-sub">Business Services Sdn Bhd</span></span></a><nav class="nav-links" aria-label="Primary"><a href="../index.html" data-transition>Home</a><a href="../about.html" data-transition>About</a><a href="../services.html" data-transition>Services</a><a href="../packages.html" data-transition>Packages</a><a href="index.html" class="active">Insights</a><a href="../contact.html" data-transition>Contact</a></nav><a href="../contact.html" data-transition class="btn btn-primary nav-cta">Book a Consultation</a><button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></header>
+<div class="mobile-menu" aria-hidden="true"><a href="../index.html" data-transition>Home</a><a href="../about.html" data-transition>About</a><a href="../services.html" data-transition>Services</a><a href="../packages.html" data-transition>Packages</a><a href="index.html">Insights</a><a href="../contact.html" data-transition>Contact</a></div>
+<section class="page-hero container"><div class="insights-intro"><div class="breadcrumb"><a href="../index.html" data-transition>Home</a> / <span>Insights</span></div><p class="eyebrow">Ordinora Knowledge Centre</p><h1>Practical Information for Brunei Businesses.</h1><p class="lead" style="margin-top:1.2rem;">Stay informed with practical guides, business updates, accounting insights, tax information and compliance resources from Ordinora Business Services Sdn Bhd.</p><div class="hero-actions" style="margin-top:1.8rem"><a href="../services.html" data-transition class="btn btn-primary">Explore Our Services</a><a href="../contact.html" data-transition class="btn btn-ghost">Contact Ordinora</a></div></div></section>
+<main>
+<section class="insights-section"><div class="container"><div class="insights-section-head"><div><p class="eyebrow">Featured Article</p><h2>Start with a practical guide.</h2></div></div><div id="featured-article"></div></div></section>
+<section class="insights-section"><div class="container"><div class="insights-section-head"><div><p class="eyebrow">Explore by Topic</p><h2>Find the information you need.</h2></div></div><div id="category-filters" class="category-filters" role="group" aria-label="Filter insights by topic"></div></div></section>
+<section class="insights-section" id="latest"><div class="container"><div class="insights-section-head"><div><p class="eyebrow">Latest Articles</p><h2>Useful context for everyday decisions.</h2></div></div><form class="insight-search" role="search"><label for="insight-search">Search Ordinora Insights</label><input id="insight-search" type="search" placeholder="Search business, tax, accounting and compliance topics..." autocomplete="off"></form><div id="latest-articles" class="insight-grid"></div></div></section>
+<section class="insights-section"><div class="container"><div class="insights-section-head"><div><p class="eyebrow">Business Guides</p><h2>Practical resources for informed decisions.</h2><p>Practical resources designed to help business owners make informed decisions.</p></div></div><div id="business-guides" class="insight-grid"></div></div></section>
+<section class="insights-section"><div class="container"><div class="insights-section-head"><div><p class="eyebrow">Popular / Helpful Articles</p><h2>Build a clearer view of your business.</h2></div></div><div class="insight-grid"><article class="insight-card glass"><div class="insight-card-body"><p class="plan-tag">Accounting &amp; Bookkeeping</p><h3>Bookkeeping vs Accounting: What&apos;s the Difference?</h3><p>A useful starting point for deciding what kind of financial support your business needs.</p><a href="./bookkeeping-vs-accounting" class="btn btn-ghost">Read Article</a></div></article><article class="insight-card glass"><div class="insight-card-body"><p class="plan-tag">Tax &amp; Compliance</p><h3>What Is ECI and Who Needs to Submit It?</h3><p>Understand the role of ECI and the records that support a sensible submission.</p><a href="./what-is-eci-brunei" class="btn btn-ghost">Read Article</a></div></article><article class="insight-card glass"><div class="insight-card-body"><p class="plan-tag">Business Guides</p><h3>Brunei Company Compliance Checklist for 2026</h3><p>Review company records, tax, accounting and employment information in one place.</p><a href="./brunei-company-compliance-checklist-2026" class="btn btn-ghost">Read Article</a></div></article></div></div></section>
+<section class="insights-section"><div class="container"><div class="insights-section-head"><div><p class="eyebrow">Ordinora Updates</p><h2>News from Ordinora, when there is news to share.</h2></div></div><div class="update-empty glass">Ordinora updates will appear here as we grow.</div></div></section>
+<section class="insights-section"><div class="container"><div class="resource-cta glass"><div><p class="eyebrow">Business Resources</p><h2>Need help applying what you&apos;ve read?</h2><p>Explore practical accounting, tax, company secretarial and business support for companies at every stage.</p></div><a href="../packages.html" data-transition class="btn btn-primary">View Packages &amp; Services</a></div></div></section>
+<section class="section section--tight"><div class="container text-center"><div class="section-head mx-auto"><p class="eyebrow" style="justify-content:center">Talk to Ordinora</p><h2>Have a question about your business?</h2><p class="section-copy">Tell us what you are working through and we will help you identify the right next step.</p></div><a href="../contact.html" data-transition class="btn btn-primary">Contact Ordinora</a></div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="/assets/images/logo.png" alt="Ordinora Business Services logo"/><p>Corporate services for businesses built to last — incorporation, compliance and advisory under one roof.</p></div><div class="footer-col"><h4>Company</h4><a href="../about.html" data-transition>About Us</a><a href="../services.html" data-transition>Services</a><a href="../packages.html" data-transition>Packages</a><a href="index.html">Insights</a><a href="../contact.html" data-transition>Contact</a></div><div class="footer-col"><h4>Services</h4><a href="../services.html#company-incorporation" data-transition>Company Incorporation</a><a href="../services.html#corporate-secretarial" data-transition>Corporate Secretarial</a><a href="../services.html#tax-compliance" data-transition>Tax Compliance</a></div><div class="footer-col"><h4>Contact</h4><p>Bandar Seri Begawan, Brunei</p><a href="mailto:info@ordinorabs.com">info@ordinorabs.com</a><a href="tel:+6738199924">+673 819 9924</a></div></div></div></footer>
+</div>
+<script src="../assets/vendor/three.min.js"></script><script src="../assets/vendor/gsap.min.js"></script><script src="../assets/vendor/ScrollTrigger.min.js"></script><script src="../assets/vendor/lenis.umd.js"></script><script src="../assets/js/threeScene.js"></script><script src="../assets/js/scroll.js"></script><script src="../assets/js/animations.js"></script><script src="../assets/js/main.js"></script><script src="../assets/js/insightsData.js"></script><script src="../assets/js/insightsEntry.js"></script>
+</body>
+</html>
