@@ -6,6 +6,9 @@
   const formatDate = (value) => dateFormat.format(new Date(value + 'T00:00:00'));
   const articleUrl = (article) => `./${encodeURIComponent(article.slug)}`;
 
+  function isPromotionalDisplayImage(article) {
+    return article.slug === 'how-to-register-a-sdn-bhd-company-in-brunei' && article.featuredImage === '/assets/images/social-preview.jpg';
+  }
   function relatedArticles(article) {
     const manuallySelected = (article.relatedArticles || []).map((slug) => data.articles.find((item) => item.slug === slug)).filter(Boolean);
     const sameCategory = data.articles.filter((item) => item.slug !== article.slug && item.category === article.category && !manuallySelected.includes(item));
@@ -36,7 +39,13 @@
     document.querySelector('#article-title').textContent = article.title;
     document.querySelector('#article-excerpt').textContent = article.excerpt;
     document.querySelector('#article-meta').innerHTML = `<span>Published: ${formatDate(article.publishedAt)}</span><span>Updated: ${formatDate(article.updatedAt)}</span><span>Reading time: ${article.readingTime}</span><span>Author: ${escapeHtml(article.author)}</span>`;
-    document.querySelector('#article-image').innerHTML = `<img src="${article.featuredImage}" alt="${escapeHtml(article.imageAlt)}">`;
+    const articleImage = document.querySelector('#article-image');
+    if (isPromotionalDisplayImage(article)) {
+      articleImage.style.display = 'none';
+    } else {
+      articleImage.style.display = '';
+      articleImage.innerHTML = `<img src="${article.featuredImage}" alt="${escapeHtml(article.imageAlt)}">`;
+    }
     document.querySelector('#article-content').innerHTML = article.content.map((block, index) => `<section id="article-section-${index}"><h2>${block.heading}</h2>${block.body}</section>`).join('');
     renderToc(article);
     document.querySelector('#takeaways').innerHTML = `<h2>Key Takeaways</h2><ul>${article.takeaways.map((item) => `<li>${item}</li>`).join('')}</ul>`;

@@ -27,16 +27,20 @@
   .insights-section-head p:not(.eyebrow) { color:rgba(251,250,247,.65); max-width:54ch; margin-top:.7rem; }
   .insight-image { aspect-ratio: 16 / 8; overflow:hidden; background:var(--ink-soft); }
   .insight-image img { width:100%; height:100%; object-fit:cover; opacity:.78; }
-  .insight-card { overflow:hidden; display:flex; flex-direction:column; }
-  .insight-card-body { padding:1.6rem; display:flex; flex-direction:column; flex:1; }
-  .insight-card h3 { font-size:1.35rem; margin:.45rem 0 .7rem; }
+  .insight-card { overflow:hidden; display:flex; flex-direction:column; height:100%; }
+  .insight-card-body { padding:1.5rem 1.5rem 1.35rem; display:flex; flex-direction:column; flex:1; }
+  .plan-tag { margin:0; color:var(--gold-light); font-size:.79rem; letter-spacing:.12em; text-transform:uppercase; }
+  .insight-card h3 { margin:.7rem 0 .85rem; font-size:clamp(1.3rem, 1.9vw, 2rem); line-height:1.3; }
   .insight-card h3 a:hover { color:var(--gold-light); }
-  .insight-card-body > p:not(.plan-tag) { color:rgba(251,250,247,.67); font-size:.9rem; }
-  .insight-card .btn { margin-top:1.2rem; width:fit-content; }
-  .insight-card--featured { display:grid; grid-template-columns:1.1fr 1fr; }
+  .insight-card-body > p:not(.plan-tag) { margin:0; color:rgba(251,250,247,.67); font-size:1rem; line-height:1.65; }
+  .insight-card .btn { margin-top:auto; width:fit-content; }
+  .insight-card--featured { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1.9fr); max-width:1200px; margin:0 auto; }
   .insight-card--featured .insight-image { height:100%; aspect-ratio:auto; }
-  .insight-card--featured h3 { font-size:clamp(1.7rem,3vw,2.7rem); }
-  .insight-meta { display:flex; gap:1rem; flex-wrap:wrap; color:rgba(251,250,247,.45); font-size:.76rem; margin-top:auto; padding-top:1.4rem; }
+  .insight-card--featured .insight-card-body { padding:clamp(1.7rem, 2.4vw, 2.5rem); }
+  .insight-card--featured h3 { font-size:clamp(2rem, 2.9vw, 3.1rem); line-height:1.15; margin:.8rem 0 .85rem; }
+  .insight-card--featured .insight-meta { margin-top:1.35rem; }
+  .insight-card--featured-no-image { display:block; }
+  .insight-meta { display:flex; gap:1rem; flex-wrap:wrap; color:rgba(251,250,247,.45); font-size:.76rem; margin-top:auto; padding-top:1.25rem; }
   .category-filters { display:flex; gap:.7rem; overflow-x:auto; padding-bottom:.3rem; scrollbar-width:none; }
   .category-filters::-webkit-scrollbar { display:none; }
   .category-filter { flex:0 0 auto; color:rgba(251,250,247,.64); border:1px solid var(--glass-border); border-radius:999px; padding:.65rem 1rem; font-size:.78rem; cursor:pointer; }
