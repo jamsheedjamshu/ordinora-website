@@ -6,7 +6,7 @@
    No colours outside this extracted palette are introduced.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Ibarra+Real+Nova:ital,wght@0,600;1,600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
 
 :root {
   /* ---- Brand colour tokens (exact values sampled from logo) ---- */
@@ -28,6 +28,7 @@
   /* ---- Typography ---- */
   --font-display: 'Playfair Display', 'Georgia', serif;
   --font-label: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-brand-label: 'Ibarra Real Nova', 'Georgia', serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* ---- Spacing / rhythm ---- */
@@ -83,13 +84,15 @@ html.lenis, html.lenis body { height: auto; }
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: var(--font-label);
+  font-family: var(--font-brand-label);
+  font-weight: 600;
   font-style: italic;
   font-size: 1.05rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold);
 }
+.brand-label { font-family: var(--font-brand-label); font-weight: 600; font-style: italic; }
 .eyebrow::before {
   content: '';
   width: 34px;
@@ -203,17 +206,17 @@ p.lead { font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: rgba(251, 250, 247, 0
   transition: font-size var(--dur-fast) var(--ease-premium);
 }
 .nav-brand-sub {
-  font-family: var(--font-body);
-  font-style: normal;
+  font-family: var(--font-brand-label);
+  font-style: italic;
   font-size: clamp(0.8rem, 0.9vw, 0.92rem);
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--gold);
   margin-top: 0.2rem;
   line-height: 1.3;
 }
-.nav-links { display: flex; align-items: center; justify-content: flex-end; gap: clamp(1rem, 1.8vw, 2rem); flex: 1 1 auto; min-width: 0; }
+.nav-links { display: flex; align-items: center; justify-content: flex-end; gap: clamp(1rem, 1.8vw, 2rem); margin-left: auto; flex: 0 1 auto; min-width: 0; }
 .nav-links a {
   font-size: 0.88rem;
   letter-spacing: 0.06em;
@@ -231,16 +234,12 @@ p.lead { font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: rgba(251, 250, 247, 0
 .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 .nav-links a.active { color: var(--gold); }
 .nav-links a[href*="investment-opportunities"] { max-width: 9rem; text-align: center; white-space: normal; line-height: 1.15; }
-.nav-cta { display: none; flex: 0 0 auto; margin-left: clamp(0.75rem, 1.5vw, 1.5rem); white-space: nowrap; }
-@media (min-width: 900px) { .nav-cta { display: inline-flex; } }
-
-.nav-cta { min-height: 44px; padding: 0.75rem 1.35rem; font-size: 0.88rem; font-weight: 600; }
+.hero-content .eyebrow { font-size: 0.92rem; letter-spacing: 0.08em; line-height: 1.3; }
 
 @media (min-width: 900px) and (max-width: 1240px) {
   .nav .container { gap: 1rem; }
   .nav-links { gap: 1rem; }
   .nav-links a { font-size: 0.76rem; letter-spacing: 0.03em; }
-  .nav-cta { padding-inline: 1.1rem; margin-left: 0.75rem; font-size: 0.76rem; }
 }
 
 .nav-toggle {
@@ -249,6 +248,11 @@ p.lead { font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: rgba(251, 250, 247, 0
 }
 .nav-toggle span { height: 1px; width: 100%; background: var(--paper); transition: transform var(--dur-fast), opacity var(--dur-fast); }
 @media (min-width: 900px) { .nav-toggle { display: none; } }
+
+@media (min-width: 900px) and (max-width: 1100px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+}
 
 .mobile-menu {
   position: fixed;
@@ -340,7 +344,7 @@ html.lenis.menu-open {
   perspective: 800px;
 }
 .service-card:hover { border-color: var(--gold); }
-.service-card .index { font-family: var(--font-label); font-style: italic; color: var(--gold); font-size: 1rem; }
+.service-card .index { font-family: var(--font-brand-label); font-style: italic; font-weight: 600; color: var(--gold); font-size: 1rem; }
 .service-card h3 { margin: 1rem 0 0.6rem; }
 .service-card p { font-size: 0.92rem; color: rgba(251,250,247,0.65); }
 .service-card .arrow { position: absolute; top: 2.2rem; right: 2.2rem; opacity: 0.5; transition: transform var(--dur-fast), opacity var(--dur-fast); }
@@ -455,12 +459,12 @@ html.lenis.menu-open {
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.4rem; margin-bottom: 3rem; }
 .footer-brand img { height: 44px; margin-bottom: 1rem; }
 .footer-brand p { font-size: 0.88rem; color: rgba(251,250,247,0.6); max-width: 32ch; }
-.footer-col h4 { font-family: var(--font-label); font-style: italic; color: var(--gold-light); font-size: 1.05rem; margin-bottom: 1rem; }
+.footer-col h4 { font-family: var(--font-brand-label); font-style: italic; font-weight: 600; color: var(--gold-light); font-size: 1.05rem; margin-bottom: 1rem; }
 .footer-col a, .footer-col p { display: block; font-size: 0.88rem; color: rgba(251,250,247,0.65); margin-bottom: 0.7rem; }
 .footer-col a:hover { color: var(--gold); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: rgba(251,250,247,0.45); }
 .footer-follow { display: flex; flex-direction: column; gap: 0.7rem; align-items: flex-start; }
-.footer-follow-title { font-family: var(--font-label); font-style: italic; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); font-size: 0.76rem; }
+.footer-follow-title { font-family: var(--font-brand-label); font-style: italic; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); font-size: 0.76rem; }
 .footer-social { display: flex; align-items: center; gap: 0.7rem; }
 .footer-social a { width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: #FFFFFF; transition: transform var(--dur-fast) ease, border-color var(--dur-fast) ease, background-color var(--dur-fast) ease, color var(--dur-fast) ease; }
 .footer-social a:hover { border-color: var(--gold); color: var(--gold); background: rgba(190,122,61,0.08); transform: translateY(-2px); }
@@ -636,7 +640,8 @@ html.lenis.menu-open {
   box-shadow: 0 8px 20px -6px rgba(202,151,49,0.55);
 }
 .pricing-card .plan-tag {
-  font-family: var(--font-label);
+  font-family: var(--font-brand-label);
+  font-weight: 600;
   font-style: italic;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
