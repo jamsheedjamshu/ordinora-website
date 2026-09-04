@@ -6,7 +6,7 @@
    No colours outside this extracted palette are introduced.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Ibarra+Real+Nova:ital,wght@0,600;1,600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Ibarra+Real+Nova:wght@600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
 
 :root {
   /* ---- Brand colour tokens (exact values sampled from logo) ---- */
@@ -86,13 +86,18 @@ html.lenis, html.lenis body { height: auto; }
   gap: 0.75rem;
   font-family: var(--font-brand-label);
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.05rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold);
 }
-.brand-label { font-family: var(--font-brand-label); font-weight: 600; font-style: italic; }
+.brand-label {
+  font-family: var(--font-brand-label);
+  font-weight: 600;
+  font-style: normal;
+  color: var(--gold);
+}
 .eyebrow::before {
   content: '';
   width: 34px;
@@ -207,9 +212,9 @@ p.lead { font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: rgba(251, 250, 247, 0
 }
 .nav-brand-sub {
   font-family: var(--font-brand-label);
-  font-style: italic;
-  font-size: clamp(0.8rem, 0.9vw, 0.92rem);
   font-weight: 600;
+  font-style: normal;
+  font-size: clamp(0.8rem, 0.9vw, 0.92rem);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--gold);
@@ -344,7 +349,7 @@ html.lenis.menu-open {
   perspective: 800px;
 }
 .service-card:hover { border-color: var(--gold); }
-.service-card .index { font-family: var(--font-brand-label); font-style: italic; font-weight: 600; color: var(--gold); font-size: 1rem; }
+.service-card .index { font-family: var(--font-brand-label); font-style: normal; font-weight: 600; color: var(--gold); font-size: 1rem; }
 .service-card h3 { margin: 1rem 0 0.6rem; }
 .service-card p { font-size: 0.92rem; color: rgba(251,250,247,0.65); }
 .service-card .arrow { position: absolute; top: 2.2rem; right: 2.2rem; opacity: 0.5; transition: transform var(--dur-fast), opacity var(--dur-fast); }
@@ -459,12 +464,12 @@ html.lenis.menu-open {
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.4rem; margin-bottom: 3rem; }
 .footer-brand img { height: 44px; margin-bottom: 1rem; }
 .footer-brand p { font-size: 0.88rem; color: rgba(251,250,247,0.6); max-width: 32ch; }
-.footer-col h4 { font-family: var(--font-brand-label); font-style: italic; font-weight: 600; color: var(--gold-light); font-size: 1.05rem; margin-bottom: 1rem; }
+.footer-col h4 { font-family: var(--font-brand-label); font-style: normal; font-weight: 600; color: var(--gold-light); font-size: 1.05rem; margin-bottom: 1rem; }
 .footer-col a, .footer-col p { display: block; font-size: 0.88rem; color: rgba(251,250,247,0.65); margin-bottom: 0.7rem; }
 .footer-col a:hover { color: var(--gold); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: rgba(251,250,247,0.45); }
 .footer-follow { display: flex; flex-direction: column; gap: 0.7rem; align-items: flex-start; }
-.footer-follow-title { font-family: var(--font-brand-label); font-style: italic; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); font-size: 0.76rem; }
+.footer-follow-title { font-family: var(--font-brand-label); font-style: normal; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); font-size: 0.76rem; }
 .footer-social { display: flex; align-items: center; gap: 0.7rem; }
 .footer-social a { width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: #FFFFFF; transition: transform var(--dur-fast) ease, border-color var(--dur-fast) ease, background-color var(--dur-fast) ease, color var(--dur-fast) ease; }
 .footer-social a:hover { border-color: var(--gold); color: var(--gold); background: rgba(190,122,61,0.08); transform: translateY(-2px); }
@@ -521,7 +526,7 @@ html.lenis.menu-open {
   border-radius: 18px;
   color: var(--gold);
 }
-.service-detail-num { font-family: var(--font-label); font-style: italic; color: var(--gold); font-size: 1.1rem; }
+.service-detail-num { font-family: var(--font-brand-label); font-weight: 600; font-style: normal; color: var(--gold); font-size: 1.1rem; }
 .service-detail-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 .service-detail-columns h4 { font-family: var(--font-display); font-size: 1.15rem; color: var(--gold-light); margin-bottom: 1.1rem; }
 .benefit-list li, .process-list li {
@@ -571,7 +576,7 @@ html.lenis.menu-open {
 .detail-facts { align-self: start; display: grid; gap: 0; padding: 0.5rem 1.5rem; position: sticky; top: 7rem; }
 .detail-facts div { display: flex; flex-direction: column; gap: 0.2rem; padding: 1rem 0; border-bottom: 1px solid var(--glass-border); }
 .detail-facts div:last-child { border-bottom: 0; }
-.detail-facts strong, .detail-copy h3 { color: var(--gold-light); font-family: var(--font-label); font-size: 1.15rem; font-style: italic; font-weight: 500; }
+.detail-facts strong, .detail-copy h3 { color: var(--gold-light); font-family: var(--font-brand-label); font-size: 1.15rem; font-style: normal; font-weight: 600; }
 .detail-facts span { color: rgba(251,250,247,0.75); font-size: 0.9rem; }
 .detail-copy { display: grid; gap: 2.8rem; }
 .detail-copy h2 { margin: 0.8rem 0 1rem; }
@@ -639,10 +644,11 @@ html.lenis.menu-open {
   border-radius: 999px;
   box-shadow: 0 8px 20px -6px rgba(202,151,49,0.55);
 }
+.plan-tag,
 .pricing-card .plan-tag {
   font-family: var(--font-brand-label);
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
   color: var(--gold);
@@ -714,7 +720,7 @@ html.lenis.menu-open {
   color: rgba(251,250,247,0.5);
   margin-top: 1.6rem;
   font-family: var(--font-label);
-  font-style: italic;
+  font-style: normal;
 }
 
 /* ---- Utility ---- */
