@@ -16,3 +16,4 @@ publish = "."
 	from = "/insights/*"
 	to = "/insights/article.html"
 	status = 200
+

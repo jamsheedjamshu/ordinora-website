@@ -14,6 +14,13 @@
     const submitBtn = document.getElementById('contact-submit');
     if (!form) return;
 
+    const requestedService = new URLSearchParams(window.location.search).get('service');
+    if (requestedService) {
+      const serviceField = form.querySelector('#service');
+      const matchingOption = [...serviceField.options].find((option) => option.textContent === requestedService);
+      if (matchingOption) serviceField.value = matchingOption.value;
+    }
+
     const showStatus = (message, isError = false) => {
       if (!status) return;
       status.textContent = message;

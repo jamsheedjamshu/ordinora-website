@@ -1,7 +1,24 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
+function investmentOpportunityRewrite() {
+  const rewrite = (req, res, next) => {
+    if (req && req.url && /^\/investment-opportunities\/[^/]+\/?$/.test(req.url.split('?')[0])) {
+      req.url = '/investment-opportunities/index.html';
+    }
+    next();
+  };
+
+  return {
+    name: 'investment-opportunity-rewrite',
+    enforce: 'pre',
+    configureServer: (server) => { server.middlewares.use(rewrite); },
+    configurePreviewServer: (server) => { server.middlewares.use(rewrite); }
+  };
+}
+
 export default defineConfig({
+  plugins: [investmentOpportunityRewrite()],
   root: '.',
   base: './',
   build: {

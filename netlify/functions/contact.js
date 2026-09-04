@@ -43,7 +43,19 @@ export default async (request) => {
   const {
     fullName,
     companyName = "",
+    position = "",
+    country = "",
     email,
+    phone = "",
+    investorType = "",
+    investmentCapacity = "",
+    areaOfInterest = "",
+    preferredContactMethod = "",
+    opportunityReference = "",
+    opportunityTitle = "",
+    informationConfirmation = "",
+    contactConsent = "",
+    submissionDate = "",
     service,
     message
   } = body;
@@ -55,6 +67,10 @@ export default async (request) => {
       },
       { status: 400 }
     );
+  }
+
+  if (service === "Investor & Business Partner Facilitation" && (!country || !phone || !investorType || contactConsent !== "Agreed")) {
+    return Response.json({ message: "Please complete all required Expression of Interest fields and consent." }, { status: 400 });
   }
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -90,7 +106,7 @@ export default async (request) => {
     from: process.env.SMTP_FROM || process.env.SMTP_USER,
     to: process.env.SMTP_TO,
     replyTo: email,
-    subject: "New Enquiry from Ordinora Website",
+    subject: opportunityReference ? `Expression of Interest: ${opportunityReference}` : "New Enquiry from Ordinora Website",
     html: `<!DOCTYPE html>
 <html lang="en">
   <body style="margin:0; padding:32px 16px; background-color:#F6F5EF; font-family:Arial, Helvetica, sans-serif; color:#13251B;">
@@ -175,6 +191,39 @@ ${email}
 
 Service of Interest:
 ${service}
+
+Opportunity Reference:
+${opportunityReference || "N/A"}
+
+Opportunity Title:
+${opportunityTitle || "N/A"}
+
+Position:
+${position || "N/A"}
+
+Country:
+${country || "N/A"}
+
+Phone:
+${phone || "N/A"}
+
+Investor / Partner Type:
+${investorType || "N/A"}
+
+Investment Capacity:
+${investmentCapacity || "N/A"}
+
+Area of Interest:
+${areaOfInterest || "N/A"}
+
+Preferred Contact Method:
+${preferredContactMethod || "N/A"}
+
+Information Confirmation: ${informationConfirmation || "N/A"}
+Contact Consent: ${contactConsent || "N/A"}
+
+Submission Date:
+${submissionDate || `${date} ${time}`}
 
 Message:
 ${message}

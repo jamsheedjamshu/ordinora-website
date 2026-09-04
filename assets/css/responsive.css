@@ -63,6 +63,10 @@
   .page-hero .breadcrumb { margin-bottom: 0.85rem; }
   .page-hero h1 { font-size: clamp(2.5rem, 6vw, 3.4rem); line-height: 1.05; }
   .page-hero .lead { margin-top: 1rem; font-size: 1rem; line-height: 1.8; max-width: 100%; }
+  .opportunity-filters { grid-template-columns: repeat(2, 1fr); }
+  .opportunity-filters label:first-child { grid-column: span 2; }
+  .opportunity-detail, .detail-form-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .detail-facts, .detail-form-grid > div { position: static; }
 }
 
 @media (max-width: 768px) {
@@ -164,6 +168,12 @@
   .page-hero h1 { font-size: clamp(2.2rem, 8vw, 2.8rem); }
   .page-hero .lead { font-size: 1rem; line-height: 1.8; }
   .page-hero .breadcrumb { gap: 0.35rem; font-size: 0.82rem; }
+  .opportunity-filters { grid-template-columns: 1fr; padding: 1rem; }
+  .opportunity-filters label:first-child { grid-column: auto; }
+  .opportunity-filters .btn { width: 100%; justify-content: center; }
+  .opportunity-meta { grid-template-columns: 1fr; gap: 0.55rem; }
+  .opportunity-card-bottom { align-items: stretch; flex-direction: column; }
+  .opportunity-card-bottom .btn, .opportunity-cta .btn { width: 100%; justify-content: center; }
   html, body { overflow-x: hidden; }
   .page-shell, .container { min-width: 0; }
 }
