@@ -15,10 +15,23 @@
   .nav-links { display: none; }
   .nav-brand-name { font-size: 1.55rem; }
   .nav-brand-sub { font-size: 0.88rem; }
-  .nav-toggle { width: 38px; gap: 7px; }
+  .nav-toggle {
+    width: 38px;
+    gap: 7px;
+    margin-left: auto;
+    flex: 0 0 auto;
+    align-self: center;
+  }
   .nav-toggle span { height: 2px; }
   .mobile-menu { padding: 1.8rem 1.2rem calc(2rem + env(safe-area-inset-bottom, 0px)); }
-  .mobile-menu a { font-size: 1.95rem; }
+  .mobile-menu a {
+    width: 100%;
+    max-width: 22rem;
+    font-size: 1.95rem;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+  }
   .contact-grid { grid-template-columns: 1fr; }
   .services-layout { grid-template-columns: 1fr; gap: 2.2rem; }
   .service-nav-wrap { position: static; width: 100%; margin-bottom: 1.2rem; }
