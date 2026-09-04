@@ -16,7 +16,7 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_BN" />
 <link rel="icon" href="./assets/logo-BO6JD67S.png" type="image/png" />
-  <link rel="stylesheet" crossorigin href="./assets/responsive-Cns9Wllw.css">
+  <link rel="stylesheet" crossorigin href="./assets/responsive-C43hDEYh.css">
 </head>
 <body>
 
@@ -49,9 +49,10 @@
           <a href="services.html" data-transition>Services</a>
           <a href="packages.html" data-transition>Packages</a>
           <a href="insights/" data-transition>Insights</a>
+          <a href="investment-opportunities/" data-transition>Investment Opportunities</a>
           <a href="contact.html" class="active">Contact</a>
         </nav>
-        <a href="contact.html" class="btn btn-primary nav-cta">Book a Consultation</a>
+        <a href="contact.html" class="btn btn-primary nav-cta">Book a Call</a>
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -64,6 +65,7 @@
       <a href="services.html" data-transition>Services</a>
       <a href="packages.html" data-transition>Packages</a>
       <a href="insights/" data-transition>Insights</a>
+      <a href="investment-opportunities/" data-transition>Investment Opportunities</a>
       <a href="contact.html">Contact</a>
     </div>
 
@@ -80,18 +82,29 @@
       <div class="container contact-grid">
 
         <form class="contact-form glass" id="contact-form" novalidate>
-          <h3>Send an enquiry</h3>
+          <h3 id="contact-form-title">Send an enquiry</h3>
           <div class="field">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" required autocomplete="name" />
           </div>
           <div class="field">
-            <label for="company">Company Name</label>
+            <label for="company" id="company-label">Company Name</label>
             <input type="text" id="company" name="company" autocomplete="organization" />
           </div>
           <div class="field">
             <label for="email">Email Address</label>
             <input type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+          <div class="investment-fields" id="investment-fields" hidden>
+            <div class="field"><label for="position">Position / Designation</label><input type="text" id="position" name="position" autocomplete="organization-title" /></div>
+            <div class="field"><label for="country">Country *</label><input type="text" id="country" name="country" required autocomplete="country-name" /></div>
+            <div class="field"><label for="phone">Contact Number *</label><input type="tel" id="phone" name="phone" required autocomplete="tel" /></div>
+            <div class="field"><label for="opportunity-title">Opportunity or Project Title</label><input type="text" id="opportunity-title" name="opportunityTitle" /></div>
+            <div class="field"><label for="industry-sector">Industry / Sector</label><input type="text" id="industry-sector" name="industrySector" /></div>
+            <div class="field"><label for="opportunity-type">Type of Opportunity</label><input type="text" id="opportunity-type" name="opportunityType" /></div>
+            <div class="field"><label for="support-required">Type of Support Required</label><select id="support-required" name="supportRequired"><option value="">Select support</option><option>Find Investors</option><option>Find a Strategic Partner</option><option>Find a Joint-Venture Partner</option><option>Find a Local Brunei Partner</option><option>Find a Distributor</option><option>Promote an Investment Opportunity</option><option>Expression of Interest Campaign</option><option>Other</option></select></div>
+            <div class="field"><label for="preferred-contact">Preferred Contact Method</label><select id="preferred-contact" name="preferredContactMethod"><option value="">Select a method</option><option>Email</option><option>Phone</option><option>WhatsApp</option></select></div>
+            <p class="form-guidance">Please provide only non-confidential introductory information at this stage. Ordinora may request additional information after an initial review.</p>
           </div>
           <div class="field">
             <label for="service">Service of Interest</label>
@@ -111,9 +124,10 @@
             </select>
           </div>
           <div class="field">
-            <label for="message">Message</label>
+            <label for="message" id="message-label">Message</label>
             <textarea id="message" name="message" required></textarea>
           </div>
+          <label class="checkbox-field investment-fields" id="investment-consent" hidden><input type="checkbox" name="consent" required /> <span>I agree to be contacted by Ordinora Business Services Sdn Bhd regarding this enquiry.</span></label>
           <button type="submit" class="btn btn-primary" id="contact-submit">Send Enquiry</button>
           <p id="form-status" role="status" style="font-size:0.85rem; color: var(--gold-light); display:none;">Thank you — we'll be in touch within one business day.</p>
         </form>

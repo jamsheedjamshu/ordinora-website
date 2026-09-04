@@ -17,3 +17,18 @@ publish = "."
 	to = "/insights/article.html"
 	status = 200
 
+[[redirects]]
+	from = "/investment-opportunities"
+	to = "/investment-opportunities/index.html"
+	status = 200
+
+[[redirects]]
+	from = "/investment-opportunities/"
+	to = "/investment-opportunities/index.html"
+	status = 200
+
+[[redirects]]
+	from = "/investment-opportunities/*"
+	to = "/investment-opportunities/index.html"
+	status = 200
+

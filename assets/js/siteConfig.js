@@ -1,5 +1,5 @@
 (function () {
   window.OrdinoraSiteConfig = {
-    investmentOpportunitiesEnabled: false
+    investmentOpportunitiesEnabled: true
   };
 })();

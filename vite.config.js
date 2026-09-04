@@ -31,7 +31,8 @@ export default defineConfig({
         contact: resolve(__dirname, 'contact.html'),
         packages: resolve(__dirname, 'packages.html'),
         insights: resolve(__dirname, 'insights/index.html'),
-        insightArticle: resolve(__dirname, 'insights/article.html')
+        insightArticle: resolve(__dirname, 'insights/article.html'),
+        investmentOpportunities: resolve(__dirname, 'investment-opportunities/index.html')
       }
     }
   },

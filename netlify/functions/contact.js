@@ -55,6 +55,11 @@ export default async (request) => {
     opportunityTitle = "",
     informationConfirmation = "",
     contactConsent = "",
+    consent = "",
+    enquirySubject = "",
+    industrySector = "",
+    opportunityType = "",
+    supportRequired = "",
     submissionDate = "",
     service,
     message
@@ -69,7 +74,7 @@ export default async (request) => {
     );
   }
 
-  if (service === "Investor & Business Partner Facilitation" && (!country || !phone || !investorType || contactConsent !== "Agreed")) {
+  if (service === "Investor & Business Partner Facilitation" && (!country || !phone || consent !== "Agreed")) {
     return Response.json({ message: "Please complete all required Expression of Interest fields and consent." }, { status: 400 });
   }
 
@@ -106,7 +111,7 @@ export default async (request) => {
     from: process.env.SMTP_FROM || process.env.SMTP_USER,
     to: process.env.SMTP_TO,
     replyTo: email,
-    subject: opportunityReference ? `Expression of Interest: ${opportunityReference}` : "New Enquiry from Ordinora Website",
+    subject: enquirySubject || (opportunityReference ? `Expression of Interest: ${opportunityReference}` : "New Enquiry from Ordinora Website"),
     html: `<!DOCTYPE html>
 <html lang="en">
   <body style="margin:0; padding:32px 16px; background-color:#F6F5EF; font-family:Arial, Helvetica, sans-serif; color:#13251B;">
@@ -198,6 +203,15 @@ ${opportunityReference || "N/A"}
 Opportunity Title:
 ${opportunityTitle || "N/A"}
 
+Industry / Sector:
+${industrySector || "N/A"}
+
+Type of Opportunity:
+${opportunityType || "N/A"}
+
+Support Required:
+${supportRequired || "N/A"}
+
 Position:
 ${position || "N/A"}
 
@@ -221,6 +235,8 @@ ${preferredContactMethod || "N/A"}
 
 Information Confirmation: ${informationConfirmation || "N/A"}
 Contact Consent: ${contactConsent || "N/A"}
+
+Consent: ${consent || "N/A"}
 
 Submission Date:
 ${submissionDate || `${date} ${time}`}
