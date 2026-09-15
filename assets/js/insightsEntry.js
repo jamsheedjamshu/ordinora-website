@@ -13,7 +13,7 @@
   }
   function renderImage(article) {
     if (isPromotionalDisplayImage(article)) return '';
-    return `<div class="insight-image"><img src="${article.featuredImage}" alt="${escapeHtml(article.imageAlt)}" loading="lazy"></div>`;
+    return `<div class="insight-image"><img src="${article.featuredImage}" alt="${escapeHtml(article.imageAlt)}" width="1536" height="1024" loading="lazy" decoding="async"></div>`;
   }
   function renderCard(article, featured) {
     const featuredClass = featured ? ' insight-card--featured' : '';

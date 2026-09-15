@@ -4,6 +4,9 @@
   "description": "Ordinora Business Services Sdn Bhd — premium corporate website",
   "type": "module",
   "scripts": {
+    "seo:generate": "node scripts/generate-seo.mjs",
+    "seo:validate": "node scripts/validate-seo.mjs",
+    "prebuild": "npm run seo:generate",
     "dev": "concurrently \"npm run server\" \"vite --host 0.0.0.0\"",
     "server": "node server.js",
     "build": "vite build",

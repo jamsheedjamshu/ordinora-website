@@ -336,7 +336,7 @@ ${date} ${time}
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:block;"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.3A5.7 5.7 0 1 1 6.3 13 5.7 5.7 0 0 1 12 7.3Zm0 2A3.7 3.7 0 1 0 15.7 13 3.7 3.7 0 0 0 12 9.3Zm5.3-3.1a1.3 1.3 0 1 1-1.3 1.3 1.3 1.3 0 0 1 1.3-1.3Z"/></svg>
                 Instagram
               </a>
-              <a href="https://www.linkedin.com/company/143034542/admin/dashboard/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; background-color:#0E2C21; color:#FFFFFF; text-decoration:none; font-size:14px; font-weight:700; padding:12px 18px; border-radius:999px; min-width:132px;">
+              <a href="https://www.linkedin.com/company/143034542/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; background-color:#0E2C21; color:#FFFFFF; text-decoration:none; font-size:14px; font-weight:700; padding:12px 18px; border-radius:999px; min-width:132px;">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:block;"><path d="M6.94 8.36A1.39 1.39 0 1 1 6.94 5.58a1.39 1.39 0 0 1 0 2.78ZM5.37 9.94h3.14v8.51H5.37zm5.05 0h3.01v1.16h.04c.42-.79 1.45-1.63 2.99-1.63 3.2 0 3.79 2.1 3.79 4.84v4.14h-3.14v-3.88c0-1.05-.02-2.4-1.46-2.4-1.47 0-1.7 1.14-1.7 2.32v3.96h-3.14V9.94Z"/></svg>
                 LinkedIn
               </a>

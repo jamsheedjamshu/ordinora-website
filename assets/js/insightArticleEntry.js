@@ -44,7 +44,7 @@
       articleImage.style.display = 'none';
     } else {
       articleImage.style.display = '';
-      articleImage.innerHTML = `<img src="${article.featuredImage}" alt="${escapeHtml(article.imageAlt)}">`;
+      articleImage.innerHTML = `<img src="${article.featuredImage}" alt="${escapeHtml(article.imageAlt)}" width="1536" height="1024" decoding="async">`;
     }
     document.querySelector('#article-content').innerHTML = article.content.map((block, index) => `<section id="article-section-${index}"><h2>${block.heading}</h2>${block.body}</section>`).join('');
     renderToc(article);
@@ -56,8 +56,17 @@
     document.querySelector('#article-cta').innerHTML = '<h2>Need help with your business?</h2><p>Ordinora provides practical accounting, tax, company secretarial and business support for companies in Brunei.</p><div class="hero-actions"><a href="../services.html" data-transition class="btn btn-primary">View Our Services</a><a href="../contact.html" data-transition class="btn btn-ghost">Request a Quote</a></div>';
   }
   function init() {
-    const slug = new URLSearchParams(window.location.search).get('slug') || data.articles[0].slug;
-    const article = data.articles.find((item) => item.slug === slug) || data.articles[0];
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const pathSlug = pathParts[0] === 'insights' && pathParts[1] && pathParts[1] !== 'article.html' ? decodeURIComponent(pathParts[1]) : '';
+    const slug = pathSlug || new URLSearchParams(window.location.search).get('slug') || data.articles[0].slug;
+    const article = data.articles.find((item) => item.slug === slug);
+    if (!article) {
+      document.title = 'Insight Not Found | Ordinora';
+      document.querySelector('meta[name="description"]').setAttribute('content', 'The requested Ordinora insight could not be found.');
+      document.querySelector('meta[name="robots"]')?.setAttribute('content', 'noindex, follow');
+      window.location.replace('/insights/');
+      return;
+    }
     render(article);
     if (O && O.initRevealAnimations) O.initRevealAnimations();
   }
