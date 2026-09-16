@@ -18,7 +18,7 @@
   catch { root.dataset.theme = 'night'; }
   const themeStyle = document.createElement('link');
   themeStyle.rel = 'stylesheet';
-  themeStyle.href = '/assets/css/theme.css';
+  themeStyle.href = '/assets/css/theme.css?v=20260916';
   document.head.appendChild(themeStyle);
   function initThemeToggle() {
     const nav = document.querySelector('header.nav > .container');
