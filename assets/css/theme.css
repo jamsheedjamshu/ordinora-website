@@ -1,0 +1,36 @@
+/* Shared Day/Night appearance. Night retains the original website styling. */
+html[data-theme="night"] { color-scheme: dark; }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 10px; border: 1px solid var(--glass-border); border-radius: 50%; background: transparent; color: var(--gold-light); cursor: pointer; margin-left: 0.6rem; }
+.theme-toggle svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.theme-toggle:hover { border-color: var(--gold); }
+.theme-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+html[data-theme="day"] { color-scheme: light; --paper: #153b3b; --white: #003333; --gold: #946b20; --gold-light: #85601c; --glass-fill: rgba(255,255,255,0.75); --glass-fill-strong: rgba(255,255,255,0.95); --glass-border: rgba(0,51,51,0.16); --glass-shadow: rgba(0,51,51,0.08); }
+html[data-theme="day"] body { background: #fbfaf7; color: #153b3b; }
+html[data-theme="day"] { --muted-text: #345555; }
+html[data-theme="day"] :is(a[href^="tel:"], a[href^="mailto:"], .contact-info-item a) { color: #153b3b; }
+html[data-theme="day"] :is(a[href^="tel:"], a[href^="mailto:"], .contact-info-item a):hover { color: #85601c; }
+html[data-theme="day"] #three-canvas { opacity: 0.12; }
+html[data-theme="day"] :is(.nav, .nav.scrolled, .mobile-menu, .footer, .package-jump) { background: rgba(251,250,247,0.97); border-color: var(--glass-border); }
+html[data-theme="day"] :is(.glass, .pricing-note, .additional-services, .article-toc, .opportunity-card) { background-color: rgba(255,255,255,0.8); }
+html[data-theme="day"] :is(p, li, label, small, .nav-links a, .mobile-menu a, .service-nav-list a, .footer-col a, .article-meta span, .opportunity-meta span, .detail-facts span, .footer-bottom > span, .service-price-list span) { color: #345555; }
+html[data-theme="day"] :is([style*="color:rgba(251"], [style*="color: rgba(251"]) { color: #345555 !important; }
+html[data-theme="day"] :is(.eyebrow, .plan-tag, .plan-period, .extras-label, .service-detail-num, .footer-follow-title, .nav-brand-sub, .finder-link span, .detail-facts strong, .opportunity-meta strong) { color: #85601c; }
+html[data-theme="day"] :is(.nav-links a.active, .service-nav-list a.active, .service-nav-list a:hover) { color: #85601c; }
+html[data-theme="day"] :is(.loader, .page-transition) { background: #fbfaf7; }
+html[data-theme="day"] :is(input, textarea, select, .package-jump select) { background: #fff; color: #153b3b; border-color: var(--glass-border); }
+html[data-theme="day"] select option { background: #fbfaf7; color: #153b3b; }
+html[data-theme="day"] select option:checked,
+html[data-theme="day"] select option:hover,
+html[data-theme="day"] select option:focus { background: #e5cb98; color: #003333; }
+html[data-theme="day"] :is(input, textarea)::placeholder { color: #637b7b; }
+html[data-theme="day"] :is(.btn-primary, .pricing-badge, .whatsapp-fab) { background: #e5cb98; color: #003333; }
+html[data-theme="day"] .pricing-card--featured { background: linear-gradient(165deg,rgba(202,151,49,0.12),rgba(255,255,255,0.9)); }
+html[data-theme="day"] .plan-price { color: #85601c; }
+html[data-theme="day"] .testimonial-card .who span { color: #345555; }
+html[data-theme="day"] .logo-strip span { color: #345555; }
+html[data-theme="day"] .logo-strip span.active { color: #85601c; }
+html[data-theme="day"] .footer-social a { color: #003333; border-color: rgba(0,51,51,0.4); background: #fff; }
+html[data-theme="day"] .footer-social a:hover { color: #85601c; border-color: #85601c; background: #f2e5cc; }
+html[data-theme="day"] .footer-social svg,
+html[data-theme="day"] .footer-social svg * { fill: currentColor !important; stroke: currentColor !important; }
+@media (max-width: 640px) { .theme-toggle { margin-left: auto; flex-basis: 40px; width: 40px; height: 40px; padding: 9px; } }

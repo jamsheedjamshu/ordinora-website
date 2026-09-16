@@ -20,9 +20,10 @@
 
   function getRequestedSlug() {
     const hash = window.location.hash.replace('#', '');
-    if (hash) return hash;
+    if (hash) return hash === 'business-consulting' ? 'business-advisory' : hash;
     const params = new URLSearchParams(window.location.search);
-    return params.get('service');
+    const slug = params.get('service');
+    return slug === 'business-consulting' ? 'business-advisory' : slug;
   }
 
   function autoScrollToRequestedService(lenis) {

@@ -43,3 +43,16 @@
 	[headers.values]
 		Cache-Control = "public, max-age=0, must-revalidate"
 
+[[redirects]]
+	from = "/services/business-consulting"
+	to = "/services/business-advisory/"
+	status = 301
+	force = true
+
+[[redirects]]
+	from = "/services/business-consulting/*"
+	to = "/services/business-advisory/"
+	status = 301
+	force = true
+
+

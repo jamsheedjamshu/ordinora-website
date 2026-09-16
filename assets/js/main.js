@@ -11,6 +11,44 @@
 (function () {
   const O = window.Ordinora;
 
+  // Shared appearance preference: the existing brand palette is Night mode.
+  const themeKey = 'ordinora-theme';
+  const root = document.documentElement;
+  try { root.dataset.theme = localStorage.getItem(themeKey) === 'day' ? 'day' : 'night'; }
+  catch { root.dataset.theme = 'night'; }
+  const themeStyle = document.createElement('link');
+  themeStyle.rel = 'stylesheet';
+  themeStyle.href = '/assets/css/theme.css';
+  document.head.appendChild(themeStyle);
+  function initThemeToggle() {
+    const nav = document.querySelector('header.nav > .container');
+    if (!nav || nav.querySelector('.theme-toggle')) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'theme-toggle';
+    const sun = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>';
+    const moon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13.2A8.5 8.5 0 0 1 10.8 3.5 8.5 8.5 0 1 0 20.5 13.2Z"/></svg>';
+    const sync = () => {
+      const day = root.dataset.theme === 'day';
+      button.innerHTML = day ? moon : sun;
+      button.setAttribute('aria-label', day ? 'Switch to Night mode' : 'Switch to Day mode');
+      button.title = day ? 'Night mode' : 'Day mode';
+      button.setAttribute('aria-pressed', String(day));
+    };
+    button.addEventListener('click', () => {
+      root.dataset.theme = root.dataset.theme === 'day' ? 'night' : 'day';
+      try { localStorage.setItem(themeKey, root.dataset.theme); } catch { /* Storage is optional. */ }
+      sync();
+    });
+    window.addEventListener('storage', (event) => {
+      if (event.key === themeKey) { root.dataset.theme = event.newValue === 'day' ? 'day' : 'night'; sync(); }
+    });
+    nav.insertBefore(button, nav.querySelector('.nav-toggle'));
+    sync();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initThemeToggle);
+  else initThemeToggle();
+
   function bootstrapSite(opts) {
     opts = opts || {};
     const sceneMode = opts.sceneMode || 'ambient';

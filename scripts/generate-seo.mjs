@@ -18,15 +18,15 @@ const jsonLd = (value) => JSON.stringify(value).replace(/</g, '\\u003c');
 
 const services = [
   ['company-incorporation', 'Company Registration in Brunei', 'Register a Brunei company with clear guidance on structure, documents, submission and post-incorporation requirements.'],
+  ['business-name-registration', 'Business Name Registration in Brunei', 'Register a business name in Brunei with application preparation, document checks and submission support.'],
   ['business-licensing', 'Business Licence Assistance in Brunei', 'Identify and secure the licences and approvals required to operate your business legally in Brunei Darussalam.'],
   ['corporate-secretarial', 'Corporate Secretarial Services in Brunei', 'Maintain statutory registers, resolutions, annual returns and corporate records with professional company secretarial support.'],
   ['accounting-bookkeeping', 'Accounting and Bookkeeping Services in Brunei', 'Keep accurate books, reconciliations and management reports with reliable accounting and bookkeeping support.'],
   ['payroll', 'Payroll Services in Brunei', 'Run accurate monthly payroll, payslips and statutory contribution calculations for local and foreign employees.'],
   ['tax-compliance', 'Corporate Tax Compliance Services in Brunei', 'Prepare corporate tax computations, supporting schedules and submissions with clear, timely compliance support.'],
-  ['business-advisory', 'Business Advisory Services in Brunei', 'Make informed structural, expansion and shareholder decisions with practical Brunei-focused business advice.'],
+  ['business-advisory', 'Business Advisory and Consulting Services in Brunei', 'Make informed market-entry, operating-model, structural, expansion and shareholder decisions with practical Brunei-focused advice and implementation support.'],
   ['visa-work-permit', 'Visa and Work Permit Assistance in Brunei', 'Coordinate employment pass, quota and work permit applications and renewals for foreign employees in Brunei.'],
-  ['trademark-registration', 'Trademark Registration in Brunei', 'Protect your business name and brand with trademark clearance, filing and application support.'],
-  ['business-consulting', 'Business Consulting Services in Brunei', 'Receive practical support for market entry, operating models, restructuring and implementation in Brunei Darussalam.']
+  ['trademark-registration', 'Trademark Registration in Brunei', 'Protect your business name and brand with trademark clearance, filing and application support.']
 ];
 
 const organization = {
@@ -129,6 +129,9 @@ for (const [slug, title, description] of services) {
   fs.writeFileSync(path.join(directory, 'index.html'), output);
 }
 
+// Preserve the retired Consulting URL without retaining a duplicate service.
+fs.writeFileSync(path.join(root, 'services/business-consulting/index.html'), '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Business Advisory and Consulting | Ordinora</title><meta name="robots" content="noindex"><link rel="canonical" href="https://ordinorabs.com/services/business-advisory/"><meta http-equiv="refresh" content="0;url=/services/business-advisory/"></head><body><a href="/services/business-advisory/">Business Advisory &amp; Consulting</a></body></html>');
+
 const staticUrls = ['/', '/about.html', '/services.html', '/packages.html', '/contact.html', '/insights/', '/investment-opportunities/'];
 const urls = [...staticUrls, ...services.map(([slug]) => `/services/${slug}/`), ...articles.map((article) => `/insights/${article.slug}/`)];
 const today = new Date().toISOString().slice(0, 10);
@@ -151,7 +154,7 @@ const linkReplacements = new Map([
   ['services.html#business-advisory', 'services/business-advisory/'],
   ['services.html#visa-work-permit', 'services/visa-work-permit/'],
   ['services.html#trademark-registration', 'services/trademark-registration/'],
-  ['services.html#business-consulting', 'services/business-consulting/'],
+  ['services.html#business-consulting', 'services/business-advisory/'],
   ['https://www.linkedin.com/company/143034542/admin/dashboard/', 'https://www.linkedin.com/company/143034542/']
 ]);
 for (const relative of linkTargets) {
