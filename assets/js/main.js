@@ -11,14 +11,14 @@
 (function () {
   const O = window.Ordinora;
 
-  // Shared appearance preference: the existing brand palette is Night mode.
+  // Default to Day mode unless the visitor has explicitly saved Night mode.
   const themeKey = 'ordinora-theme';
   const root = document.documentElement;
-  try { root.dataset.theme = localStorage.getItem(themeKey) === 'day' ? 'day' : 'night'; }
-  catch { root.dataset.theme = 'night'; }
+  try { root.dataset.theme = localStorage.getItem(themeKey) === 'night' ? 'night' : 'day'; }
+  catch { root.dataset.theme = 'day'; }
   const themeStyle = document.createElement('link');
   themeStyle.rel = 'stylesheet';
-  themeStyle.href = '/assets/css/theme.css?v=20260916';
+  themeStyle.href = '/assets/css/theme.css?v=20260917-2';
   document.head.appendChild(themeStyle);
   function initThemeToggle() {
     const nav = document.querySelector('header.nav > .container');
@@ -41,7 +41,7 @@
       sync();
     });
     window.addEventListener('storage', (event) => {
-      if (event.key === themeKey) { root.dataset.theme = event.newValue === 'day' ? 'day' : 'night'; sync(); }
+      if (event.key === themeKey) { root.dataset.theme = event.newValue === 'night' ? 'night' : 'day'; sync(); }
     });
     nav.insertBefore(button, nav.querySelector('.nav-toggle'));
     sync();

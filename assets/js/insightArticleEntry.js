@@ -4,7 +4,7 @@
   const dateFormat = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
   const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
   const formatDate = (value) => dateFormat.format(new Date(value + 'T00:00:00'));
-  const articleUrl = (article) => `./${encodeURIComponent(article.slug)}`;
+  const articleUrl = (article) => `/insights/${encodeURIComponent(article.slug)}/`;
 
   function isPromotionalDisplayImage(article) {
     return article.slug === 'how-to-register-a-sdn-bhd-company-in-brunei' && article.featuredImage === '/assets/images/social-preview.jpg';

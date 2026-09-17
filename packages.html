@@ -55,6 +55,8 @@
   .pricing-note h2 { margin: 0.8rem 0 1.2rem; }
   .pricing-note p:not(.eyebrow) { max-width: 75ch; color: rgba(251, 250, 247, 0.72); margin-top: 0.85rem; }
   @media (max-width: 960px) {
+    .package-jump { position: fixed; left: 0; right: 0; width: 100%; }
+    .page-shell { padding-top: calc(var(--nav-height) + var(--package-jump-height, 68px)); }
     .finder-grid { grid-template-columns: repeat(4, 1fr); }
     .service-price-list { grid-template-columns: repeat(2, 1fr); }
   }

@@ -12,10 +12,15 @@
       if (!select || !jump) return;
       const updateOffset = () => {
         jump.style.setProperty('--package-nav-top', `${header ? header.getBoundingClientRect().height : 0}px`);
+        document.documentElement.style.setProperty('--package-jump-height', `${jump.getBoundingClientRect().height}px`);
       };
       updateOffset();
-      if (header && window.ResizeObserver) new ResizeObserver(updateOffset).observe(header);
-      else window.addEventListener('resize', updateOffset);
+      if (window.ResizeObserver) {
+        const observer = new ResizeObserver(updateOffset);
+        if (header) observer.observe(header);
+        observer.observe(jump);
+      }
+      window.addEventListener('resize', updateOffset);
       select.addEventListener('change', () => {
         const target = document.getElementById(select.value);
         if (!target) return;

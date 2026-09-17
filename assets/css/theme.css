@@ -34,3 +34,7 @@ html[data-theme="day"] .footer-social a:hover { color: #85601c; border-color: #8
 html[data-theme="day"] .footer-social svg,
 html[data-theme="day"] .footer-social svg * { fill: currentColor !important; stroke: currentColor !important; }
 @media (max-width: 640px) { .theme-toggle { margin-left: auto; flex-basis: 40px; width: 40px; height: 40px; padding: 9px; } }
+html[data-theme="day"] .category-filter { color: #345555; background: #fff; }
+html[data-theme="day"] .category-filter:hover,
+html[data-theme="day"] .category-filter.is-active { color: #003333; background: #e5cb98; border-color: #85601c; }
+html[data-theme="day"] :is(.insight-card-body > p:not(.plan-tag), .insights-section-head p:not(.eyebrow), .insight-meta, .insight-empty, .update-empty) { color: #345555; }

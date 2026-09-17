@@ -1,13 +1,13 @@
 (function () {
   const data = window.OrdinoraInsights;
   const O = window.Ordinora;
-  const articles = data.articles;
+  const articles = data.articles.filter((article, index, all) => all.findIndex((item) => item.slug === article.slug) === index);
   const categories = data.categories;
   const dateFormat = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
   function formatDate(value) { return dateFormat.format(new Date(value + 'T00:00:00')); }
   function escapeHtml(value) { return String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char])); }
-  function articleUrl(article) { return `./${encodeURIComponent(article.slug)}`; }
+  function articleUrl(article) { return `/insights/${encodeURIComponent(article.slug)}/`; }
   function isPromotionalDisplayImage(article) {
     return article.slug === 'how-to-register-a-sdn-bhd-company-in-brunei' && article.featuredImage === '/assets/images/social-preview.jpg';
   }
@@ -41,13 +41,10 @@
   }
 
   function init() {
-    const featured = articles.find((article) => article.featured);
-    document.querySelector('#featured-article').innerHTML = renderCard(featured, true);
-    const guides = articles.filter((article) => article.category === 'Business Guides' || article.category === 'Company Incorporation' || article.category === 'Tax & Compliance').slice(0, 3);
-    renderCards(guides, document.querySelector('#business-guides'), 'Business guides will appear here as they are published.');
     document.querySelector('#category-filters').innerHTML = categories.map((category) => `<button class="category-filter${category === currentCategory() ? ' is-active' : ''}" type="button" data-category="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join('');
     document.querySelectorAll('.category-filter').forEach((button) => button.addEventListener('click', () => { updateUrl(button.dataset.category); render(); }));
     document.querySelector('#insight-search').addEventListener('input', render);
+    document.querySelector('.insight-search').addEventListener('submit', (event) => event.preventDefault());
     render();
     const params = new URLSearchParams(window.location.search);
     if (params.get('category')) document.querySelector('#latest-articles').scrollIntoView({ block: 'start' });
