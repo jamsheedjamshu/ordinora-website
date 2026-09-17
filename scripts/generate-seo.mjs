@@ -116,6 +116,14 @@ for (const article of articles) {
   fs.writeFileSync(path.join(directory, 'index.html'), output);
 }
 
+// Render the listing at build time so articles remain visible without animations or JavaScript.
+const listingPath = path.join(root, 'insights/index.html');
+const listingCards = articles.map((article) => `<article class="insight-card glass"><div class="insight-card-body"><p class="plan-tag">${escapeHtml(article.category)}</p><h3><a href="/insights/${article.slug}/">${escapeHtml(article.title)}</a></h3><p>${escapeHtml(article.excerpt)}</p><a href="/insights/${article.slug}/" class="btn btn-ghost">Read Article</a></div></article>`).join('');
+let listingHtml = fs.readFileSync(listingPath, 'utf8');
+listingHtml = listingHtml.replace(/(<div id="latest-articles" class="insight-grid">)[\s\S]*?(<\/div><\/div><\/section>)/, (_, open, close) => open + listingCards + close);
+listingHtml = listingHtml.replace(/insightsEntry\.js\?v=[^"<]+/g, 'insightsEntry.js?v=20260917-3');
+fs.writeFileSync(listingPath, listingHtml);
+
 const servicesHtml = fs.readFileSync(path.join(root, 'services.html'), 'utf8');
 for (const [slug, title, description] of services) {
   const match = servicesHtml.match(new RegExp(`<article class="service-detail" id="${slug}">([\\s\\S]*?)<\\/article>`));

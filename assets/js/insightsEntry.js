@@ -18,7 +18,7 @@
   function renderCard(article, featured) {
     const featuredClass = featured ? ' insight-card--featured' : '';
     const noImageClass = featured && isPromotionalDisplayImage(article) ? ' insight-card--featured-no-image' : '';
-    return `<article class="insight-card glass reveal-up${featuredClass}${noImageClass}">${renderImage(article)}<div class="insight-card-body"><p class="plan-tag">${escapeHtml(article.category)}</p><h3><a href="${articleUrl(article)}" data-transition>${article.title}</a></h3><p>${article.excerpt}</p><div class="insight-meta"><span>${formatDate(article.publishedAt)}</span><span>${article.readingTime}</span></div><a href="${articleUrl(article)}" data-transition class="btn btn-ghost">Read Article</a></div></article>`;
+    return `<article class="insight-card glass${featuredClass}${noImageClass}">${renderImage(article)}<div class="insight-card-body"><p class="plan-tag">${escapeHtml(article.category)}</p><h3><a href="${articleUrl(article)}" data-transition>${article.title}</a></h3><p>${article.excerpt}</p><div class="insight-meta"><span>${formatDate(article.publishedAt)}</span><span>${article.readingTime}</span></div><a href="${articleUrl(article)}" data-transition class="btn btn-ghost">Read Article</a></div></article>`;
   }
   function renderCards(list, target, emptyText) { target.innerHTML = list.length ? list.map((article) => renderCard(article)).join('') : `<p class="insight-empty">${emptyText}</p>`; }
   function currentCategory() { return new URLSearchParams(window.location.search).get('category') || 'All'; }
@@ -37,7 +37,7 @@
     const latest = document.querySelector('#latest-articles');
     renderCards(filtered, latest, 'No articles match that search yet. Try another topic.');
     document.querySelectorAll('.category-filter').forEach((button) => button.classList.toggle('is-active', button.dataset.category === currentCategory()));
-    if (O && O.initRevealAnimations) O.initRevealAnimations();
+
   }
 
   function init() {
@@ -50,5 +50,7 @@
     if (params.get('category')) document.querySelector('#latest-articles').scrollIntoView({ block: 'start' });
   }
 
-  O.bootstrapSite({ sceneMode: 'ambient', onReady: init });
+  // Content and filtering must not depend on the decorative scene starting.
+  init();
+  O.bootstrapSite({ sceneMode: 'ambient' });
 })();
