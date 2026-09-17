@@ -465,7 +465,7 @@ html.lenis.menu-open {
 /* ---- Footer ---- */
 .footer { padding-block: 4rem 2.2rem; border-top: 1px solid var(--glass-border); }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.4rem; margin-bottom: 3rem; }
-.footer-brand img { height: 44px; margin-bottom: 1rem; }
+.footer-brand img { height: 44px; width: auto; object-fit: contain; margin-bottom: 1rem; }
 .footer-brand p { font-size: 0.88rem; color: var(--muted-text, rgba(251,250,247,0.6)); max-width: 32ch; }
 .footer-col h4 { font-family: var(--font-brand-label); font-style: normal; font-weight: 600; color: var(--gold-light); font-size: 1.05rem; margin-bottom: 1rem; }
 .footer-col a, .footer-col p { display: block; font-size: 0.88rem; color: var(--muted-text, rgba(251,250,247,0.65)); margin-bottom: 0.7rem; }
