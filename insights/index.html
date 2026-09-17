@@ -47,6 +47,9 @@
   .category-filters { display:flex; gap:.7rem; overflow-x:auto; padding-bottom:.3rem; scrollbar-width:none; }
   .category-filters::-webkit-scrollbar { display:none; }
   .category-filter { flex:0 0 auto; color:rgba(251,250,247,.64); border:1px solid var(--glass-border); border-radius:999px; padding:.65rem 1rem; font-size:.78rem; cursor:pointer; }
+  html[data-theme="day"] .category-filter { color: #345555; background: #fff; }
+  html[data-theme="day"] .category-filter:hover, html[data-theme="day"] .category-filter.is-active { color: #003333; background: #e5cb98; border-color: #85601c; }
+  html[data-theme="day"] .insight-card .btn-ghost { color: #003333; border-color: #85601c; }
   .category-filter:hover, .category-filter.is-active { color:var(--ink-deep); border-color:var(--gold); background:var(--gold-light); }
   .insight-search { display:flex; gap:.8rem; align-items:center; max-width:720px; margin-bottom:1.5rem; }
   .insight-search label { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
